@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Services Offered at Sri Jagannatha Temple">
-    <title>Services - Shri Jagannatha Temple</title>
+    <title>Services - Sri Jagannatha Temple</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -13,7 +13,7 @@
     <nav class="navbar">
         <div class="container">
             <div class="nav-brand">
-                <h1> 🛕 Shri Jagannatha Temple | Bidar </h1>
+                <h1>🙏 Sri Jagannatha Temple</h1>
             </div>
             <ul class="nav-menu">
                 <li><a href="../index.html">Home</a></li>
@@ -178,6 +178,24 @@
                     <p>
                         Customized puja ceremonies performed for various occasions including birthdays, anniversaries, 
                         house warming, and prosperity blessings.
+                    </p>
+                </div>
+
+                <div class="special-service-card">
+                    <i class="fas fa-ring"></i>
+                    <h3>Wedding Ceremonies</h3>
+                    <p>
+                        Bless your union with sacred temple wedding ceremonies. Our priests conduct traditional rituals 
+                        ensuring auspicious beginnings for your married life.
+                    </p>
+                </div>
+
+                <div class="special-service-card">
+                    <i class="fas fa-baby"></i>
+                    <h3>Naming Ceremonies</h3>
+                    <p>
+                        Welcome newborns with sacred naming ceremonies (Namakarana). We perform traditional rituals to 
+                        bring divine blessings upon the child.
                     </p>
                 </div>
 
@@ -515,3 +533,145 @@
 
         .special-services-grid {
             display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .special-service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .special-service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+        }
+
+        .special-service-card i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .special-service-card h3 {
+            color: var(--dark-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .special-service-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .programs-section {
+            padding: 60px 0;
+            background: white;
+        }
+
+        .programs-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--dark-color);
+            margin-bottom: 3rem;
+        }
+
+        .programs-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .program-item {
+            background: var(--light-color);
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 5px solid var(--primary-color);
+            position: relative;
+            padding-left: 4rem;
+        }
+
+        .program-number {
+            position: absolute;
+            left: 1rem;
+            top: 1rem;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            background: white;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .program-item h3 {
+            color: var(--dark-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .program-item p {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .pricing-section {
+            padding: 60px 0;
+            background: var(--light-color);
+        }
+
+        .pricing-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--dark-color);
+            margin-bottom: 3rem;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .pricing-card.featured {
+            border-top: 5px solid var(--primary-color);
+            transform: scale(1.05);
+        }
+
+        .badge {
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary-color);
+            color: var(--dark-color);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+    </style>
+</body>
+</html>
