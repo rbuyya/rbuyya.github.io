@@ -18,9 +18,10 @@
             </div>
             <ul class="nav-menu">
                 <li><a href="../index.html">Home</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="services.html" class="active">Services</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="contact.html" class="nav-btn-contact">Contact</a></li>
             </ul>
         </div>
     </nav>
@@ -335,12 +336,33 @@
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: var(--text-main); background-color: #fff; }
         .container { max-width: var(--max-width); margin: 0 auto; padding: 0 20px; }
 
-        .navbar { background-color: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; padding: 1rem 0; }
+        /* Updated Navbar Styling Based on IMG_20260606_222100.jpg */
+        .navbar { 
+            background: linear-gradient(to right, #411d0b, #934311); 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15); 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000; 
+            padding: 0.8rem 0; 
+        }
         .nav-container { display: flex; justify-content: space-between; align-items: center; }
-        .nav-brand h1 { font-size: 1.5rem; color: var(--primary-color); }
-        .nav-menu { display: flex; list-style: none; gap: 2rem; }
-        .nav-menu a { text-decoration: none; color: var(--dark-color); font-weight: 600; transition: var(--transition); }
-        .nav-menu a:hover, .nav-menu a.active { color: var(--primary-color); }
+        .nav-brand h1 { font-size: 1.6rem; color: #ffffff; font-weight: 600; }
+        .nav-menu { display: flex; list-style: none; gap: 2.5rem; align-items: center; }
+        .nav-menu a { text-decoration: none; color: #ffffff; opacity: 0.85; font-weight: 500; transition: var(--transition); font-size: 1.05rem; }
+        .nav-menu a:hover, .nav-menu a.active { opacity: 1; }
+        
+        /* Contact Button matching image layout */
+        .nav-menu a.nav-btn-contact {
+            background-color: #cca072;
+            color: #241107;
+            padding: 0.5rem 1.5rem;
+            border-radius: 6px;
+            font-weight: 600;
+            opacity: 1;
+        }
+        .nav-menu a.nav-btn-contact:hover {
+            background-color: #dfb486;
+        }
 
         .hero { background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1609137144813-90343df8996b?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat; min-height: 350px !important; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--white); padding: 40px 20px; }
         .hero-content h1 { font-size: 3rem; margin-bottom: 0.5rem; letter-spacing: 1px; }
