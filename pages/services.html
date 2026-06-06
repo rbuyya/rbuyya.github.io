@@ -336,34 +336,82 @@
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: var(--text-main); background-color: #fff; }
         .container { max-width: var(--max-width); margin: 0 auto; padding: 0 20px; }
 
-        /* Updated Navbar Styling Based on IMG_20260606_222100.jpg */
-        .navbar { 
-            background: linear-gradient(to right, #411d0b, #934311); 
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15); 
-            position: sticky; 
-            top: 0; 
-            z-index: 1000; 
-            padding: 0.8rem 0; 
+        /* STRICT OVERRIDES TO OVERWRITE EXTERNAL STYLE.CSS MISMATCHES */
+        nav.navbar { 
+            background: linear-gradient(to right, #111e29 0%, #46220f 40%, #904111 80%, #6e320d 100%) !important;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3) !important; 
+            position: sticky !important; 
+            top: 0 !important; 
+            z-index: 99999 !important; 
+            padding: 1rem 0 !important; 
+            display: block !important;
         }
-        .nav-container { display: flex; justify-content: space-between; align-items: center; }
-        .nav-brand h1 { font-size: 1.6rem; color: #ffffff; font-weight: 600; }
-        .nav-menu { display: flex; list-style: none; gap: 2.5rem; align-items: center; }
-        .nav-menu a { text-decoration: none; color: #ffffff; opacity: 0.85; font-weight: 500; transition: var(--transition); font-size: 1.05rem; }
-        .nav-menu a:hover, .nav-menu a.active { opacity: 1; }
         
-        /* Contact Button matching image layout */
-        .nav-menu a.nav-btn-contact {
-            background-color: #cca072;
-            color: #241107;
-            padding: 0.5rem 1.5rem;
-            border-radius: 6px;
-            font-weight: 600;
-            opacity: 1;
-        }
-        .nav-menu a.nav-btn-contact:hover {
-            background-color: #dfb486;
+        .nav-container { 
+            display: flex !important; 
+            justify-content: space-between !important; 
+            align-items: center !important; 
         }
 
+        .nav-brand h1 { 
+            font-size: 1.5rem !important; 
+            color: #ff8c00 !important; /* Forces the text color to correct orange */
+            font-weight: bold !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            letter-spacing: 0.5px !important;
+        }
+        
+        .nav-menu { 
+            display: flex !important; 
+            list-style: none !important; 
+            gap: 2rem !important; 
+            align-items: center !important;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+
+        .nav-menu li {
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+
+        /* Forces all menu text items to be white */
+        .nav-menu li a { 
+            text-decoration: none !important; 
+            color: #ffffff !important; 
+            font-weight: 500 !important; 
+            font-size: 1.05rem !important;
+            opacity: 0.9 !important;
+            background: none !important;
+            padding: 0.3rem 0.5rem !important;
+            border: none !important;
+        }
+        
+        .nav-menu li a:hover, 
+        .nav-menu li a.active { 
+            opacity: 1 !important; 
+            color: #ffffff !important;
+        }
+        
+        /* Forces Contact Button back to Light Tan / Terracotta with Dark Text */
+        .nav-menu li a.nav-btn-contact {
+            background-color: #cca072 !important;
+            color: #241107 !important;
+            padding: 0.5rem 1.4rem !important;
+            border-radius: 6px !important;
+            font-weight: 600 !important;
+            opacity: 1 !important;
+            display: inline-block !important;
+            border: none !important;
+        }
+        
+        .nav-menu li a.nav-btn-contact:hover {
+            background-color: #dfb486 !important;
+            color: #241107 !important;
+        }
+
+        /* Rest of Page Layout Stylings */
         .hero { background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1609137144813-90343df8996b?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat; min-height: 350px !important; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--white); padding: 40px 20px; }
         .hero-content h1 { font-size: 3rem; margin-bottom: 0.5rem; letter-spacing: 1px; }
         .hero-content p { font-size: 1.25rem; opacity: 0.9; }
@@ -392,7 +440,6 @@
         .aarti-table tr:nth-child(even) { background-color: rgba(245, 124, 0, 0.02); }
         .aarti-dot { color: var(--primary-color); margin-right: 0.5rem; font-size: 0.9rem; }
 
-        /* Sunday Special CSS */
         .sunday-special-section { padding: 20px 0; }
         .sunday-card { background: linear-gradient(to bottom right, #ffffff, #fffdf9); padding: 3rem; border-radius: 16px; box-shadow: var(--shadow); border: 2px solid var(--accent-gold); }
         .sunday-card h3 { color: var(--primary-hover); font-size: 1.8rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.75rem; }
