@@ -5,15 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Services Offered at Sri Jagannatha Temple">
     <title>Services - Sri Jagannatha Temple</title>
+    <!-- External Stylesheets -->
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar">
-        <div class="container">
+        <div class="container nav-container">
             <div class="nav-brand">
-                <h1>🙏 Sri Jagannatha Temple</h1>
+                <h1>🛕Shri Jagannath Temple🛕, Bidar ⭕❗⭕</h1>
             </div>
             <ul class="nav-menu">
                 <li><a href="../index.html">Home</a></li>
@@ -25,7 +26,7 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero" style="min-height: 300px; padding: 100px 20px;">
+    <section class="hero">
         <div class="hero-content">
             <h1>Our Services</h1>
             <p>Spiritual Services for All Devotees</p>
@@ -34,44 +35,124 @@
 
     <!-- Main Content -->
     <main class="container">
-        <!-- Daily Services -->
+        
+        <!-- Daily Schedule Section -->
         <section class="services-section">
-            <h2>Daily Services & Rituals</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-sun"></i>
+            <h2>Daily Schedule & Rituals</h2>
+            
+            <div class="schedule-container">
+                <!-- Left Column: Darshan Timings -->
+                <div class="schedule-block darshan-block">
+                    <h3><i class="fas fa-eye"></i> Darshan Timings</h3>
+                    <div class="darshan-hours">
+                        <div class="darshan-time-row">
+                            <span>Morning to Afternoon</span>
+                            <strong>5:00 AM TO 1:00 PM</strong>
+                        </div>
+                        <div class="darshan-time-row closure-notice">
+                            <span>Afternoon Closure</span>
+                            <strong>1:00 PM TO 4:00 PM</strong>
+                        </div>
+                        <div class="darshan-time-row">
+                            <span>Evening Darshan</span>
+                            <strong>4:00 PM TO 8:30 PM</strong>
+                        </div>
                     </div>
-                    <h3>Morning Aarti</h3>
-                    <p>
-                        Start your day with sacred morning prayers and aarti (ritual of worship) performed at the temple. 
-                        Experience the divine energy as the day breaks with devotional hymns and bell ringing.
-                    </p>
-                    <p class="service-time"><strong>Time:</strong> 6:00 AM - 7:30 AM</p>
+                    <p class="closure-warning"><i class="fas fa-info-circle"></i> DARSHAN CLOSE AT 8:30 PM</p>
                 </div>
 
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-hands-praying"></i>
-                    </div>
-                    <h3>Darshan (Divine Viewing)</h3>
-                    <p>
-                        Receive the divine blessings of Lord Jagannatha. Our darshan service allows devotees to seek 
-                        spiritual enlightenment and receive the grace of the deity.
-                    </p>
-                    <p class="service-time"><strong>Time:</strong> 6:00 AM - 8:00 PM</p>
+                <!-- Right Column: Aarti Timings Table -->
+                <div class="schedule-block aarti-block">
+                    <h3><i class="fas fa-gong"></i> Daily Aarti Schedule</h3>
+                    <table class="aarti-table">
+                        <thead>
+                            <tr>
+                                <th>Aarti Ritual</th>
+                                <th>Timing</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><i class="fas fa-sun aarti-dot"></i> MANGALA AARTI</td>
+                                <td>5:00 AM - 5:30 AM</td>
+                            </tr>
+                            <tr>
+                                <td><i class="fas fa-cloud-sun aarti-dot"></i> SHRINGAR AARTI</td>
+                                <td>7:00 AM - 7:30 AM</td>
+                            </tr>
+                            <tr>
+                                <td><i class="fas fa-utensils aarti-dot"></i> RAJ BHOGA AARTI</td>
+                                <td>12:30 PM - 1:00 PM</td>
+                            </tr>
+                            <tr>
+                                <td><i class="fas fa-cloud-moon aarti-dot"></i> DHOOP AARTI</td>
+                                <td>4:00 PM - 4:15 PM</td>
+                            </tr>
+                            <tr>
+                                <td><i class="fas fa-moon aarti-dot"></i> GAURA AARTI</td>
+                                <td>7:00 PM - 7:30 PM</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
+            </div>
+        </section>
 
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-moon"></i>
+        <!-- Sunday Special Section -->
+        <section class="sunday-special-section">
+            <h2>Sunday Special</h2>
+            <div class="sunday-card">
+                <h3><i class="fas fa-calendar-stars"></i> Mega Evening Feast & Satsang Program</h3>
+                <p class="sunday-intro">Join us every Sunday evening with your family to experience a transformative spiritual gathering full of devotion, knowledge, and holy offerings.</p>
+                
+                <div class="timeline-container">
+                    <div class="timeline-item">
+                        <div class="timeline-icon"><i class="fas fa-music"></i></div>
+                        <div class="timeline-content">
+                            <h4>Ecstatic Kirtan</h4>
+                            <p>Congregational chanting of holy names to purify the heart and awaken spiritual joy.</p>
+                        </div>
                     </div>
-                    <h3>Evening Aarti</h3>
-                    <p>
-                        Conclude your day with peaceful evening prayers and aarti. The temple illuminates with the glow of 
-                        lamps as devotees gather for this sacred evening ceremony.
-                    </p>
-                    <p class="service-time"><strong>Time:</strong> 6:00 PM - 8:00 PM</p>
+
+                    <div class="timeline-item">
+                        <div class="timeline-icon"><i class="fas fa-seedling"></i></div>
+                        <div class="timeline-content">
+                            <h4>Tulsi Pooja</h4>
+                            <p>Sacred worship and circumambulation of Srimati Tulsi Devi for devotional blessings.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-icon"><i class="fas fa-fire"></i></div>
+                        <div class="timeline-content">
+                            <h4>Gauranga Aarti</h4>
+                            <p>Grand evening aarti ceremony with intense kirtan, lamps, and beautiful flowers.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-icon"><i class="fas fa-book-open"></i></div>
+                        <div class="timeline-content">
+                            <h4>Bhagavad Gita Discourse</h4>
+                            <p>Insightful, practical wisdom from the timeless verses of the Gita applied to daily life.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-icon"><i class="fas fa-om"></i></div>
+                        <div class="timeline-content">
+                            <h4>Srimad Bhagavatam Satsang</h4>
+                            <p>Deep dive into the pastimes and philosophical glories of the Supreme Lord.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item highlight">
+                        <div class="timeline-icon"><i class="fas fa-utensils"></i></div>
+                        <div class="timeline-content">
+                            <h4>Jagannath Prabhu Mahaprasad</h4>
+                            <p>Honoring sanctified, purely vegetarian multi-course feast offered to Jagannath and given to all devotees with blessings of Lord Prabhu.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -83,55 +164,25 @@
                 <div class="special-service-card">
                     <i class="fas fa-heart"></i>
                     <h3>Puja Services</h3>
-                    <p>
-                        Customized puja ceremonies performed for various occasions including birthdays, anniversaries, 
-                        house warming, and prosperity blessings.
-                    </p>
-                </div>
-
-                <div class="special-service-card">
-                    <i class="fas fa-ring"></i>
-                    <h3>Wedding Ceremonies</h3>
-                    <p>
-                        Bless your union with sacred temple wedding ceremonies. Our priests conduct traditional rituals 
-                        ensuring auspicious beginnings for your married life.
-                    </p>
-                </div>
-
-                <div class="special-service-card">
-                    <i class="fas fa-baby"></i>
-                    <h3>Naming Ceremonies</h3>
-                    <p>
-                        Welcome newborns with sacred naming ceremonies (Namakarana). We perform traditional rituals to 
-                        bring divine blessings upon the child.
-                    </p>
+                    <p>Customized puja ceremonies performed for various occasions including birthdays, anniversaries, house warming, and prosperity blessings.</p>
                 </div>
 
                 <div class="special-service-card">
                     <i class="fas fa-book"></i>
                     <h3>Spiritual Guidance</h3>
-                    <p>
-                        Seek guidance from experienced spiritual mentors. We provide counseling based on ancient scriptures 
-                        and spiritual wisdom for life's challenges.
-                    </p>
+                    <p>Seek guidance from experienced spiritual mentors. We provide counseling based on ancient scriptures and spiritual wisdom for life's challenges.</p>
                 </div>
 
                 <div class="special-service-card">
                     <i class="fas fa-users"></i>
                     <h3>Group Prayers</h3>
-                    <p>
-                        Join our community prayer sessions and meditation groups. Experience collective spiritual energy 
-                        through group worship and discussions.
-                    </p>
+                    <p>Join our community prayer sessions and meditation groups. Experience collective spiritual energy through group worship and discussions.</p>
                 </div>
 
                 <div class="special-service-card">
                     <i class="fas fa-utensils"></i>
                     <h3>Blessed Food (Prasadam)</h3>
-                    <p>
-                        Receive blessed temple food (prasadam) as part of our spiritual offering. Partake in sacred meals 
-                        prepared with love and devotion.
-                    </p>
+                    <p>Receive blessed temple food (prasadam) as part of our spiritual offering. Partake in sacred meals prepared with love and devotion.</p>
                 </div>
             </div>
         </section>
@@ -142,61 +193,47 @@
             <div class="programs-list">
                 <div class="program-item">
                     <div class="program-number">01</div>
-                    <h3>Festival Celebrations</h3>
-                    <p>
-                        Celebrate major Hindu festivals including Janmashtami, Diwali, Holi, and other sacred occasions 
-                        with grand celebrations and community gatherings.
-                    </p>
+                    <div class="program-body">
+                        <h3>Festival Celebrations</h3>
+                        <p>Celebrate major Hindu festivals including Gauranga Appearance, Raam Navami, Narsimha Appearance, Rathayatra, Krishna Janmashtami, Govarhan Festival, Radhashtami, Karthik Damodar Season, Tulsi Vivaaha along with other sacred occasions with grand celebrations and community gatherings.</p>
+                    </div>
                 </div>
 
                 <div class="program-item">
                     <div class="program-number">02</div>
-                    <h3>Meditation Classes</h3>
-                    <p>
-                        Learn and practice meditation techniques to achieve inner peace and mental clarity. Our sessions 
-                        are guided by experienced practitioners.
-                    </p>
+                    <div class="program-body">
+                        <h3>Gau Seva</h3>
+                        <p>Engage in the sacred service of protecting and nurturing cows. Devotees can participate in feeding, sheltering, and caring for temple cows to receive boundless spiritual blessings and peace.</p>
+                    </div>
                 </div>
 
                 <div class="program-item">
                     <div class="program-number">03</div>
-                    <h3>Scriptural Teachings</h3>
-                    <p>
-                        Participate in regular discourses on sacred texts like Bhagavad Gita, Upanishads, and other Hindu 
-                        philosophical texts explained in simple terms.
-                    </p>
+                    <div class="program-body">
+                        <h3>Scriptural Teachings</h3>
+                        <p>Participate in regular discourses on sacred texts like Bhagavad Gita, Upanishads, and other Hindu philosophical texts explained in simple terms.</p>
+                    </div>
                 </div>
 
                 <div class="program-item">
                     <div class="program-number">04</div>
-                    <h3>Yoga & Wellness</h3>
-                    <p>
-                        Join our yoga and wellness programs combining spiritual practice with physical health. Achieve 
-                        balance between mind, body, and spirit.
-                    </p>
+                    <div class="program-body">
+                        <h3>Community Service</h3>
+                        <p>Participate in our social service programs including food distribution seva, Temple Decoration seva during festive times, and voluntary seva to serve society and the divine.</p>
+                    </div>
                 </div>
 
                 <div class="program-item">
                     <div class="program-number">05</div>
-                    <h3>Community Service</h3>
-                    <p>
-                        Participate in our social service programs including food distribution, education support, and 
-                        healthcare initiatives for underprivileged sections.
-                    </p>
-                </div>
-
-                <div class="program-item">
-                    <div class="program-number">06</div>
-                    <h3>Youth Programs</h3>
-                    <p>
-                        Special programs designed for youth to connect with spirituality, learn cultural values, and 
-                        develop character through temple activities.
-                    </p>
+                    <div class="program-body">
+                        <h3>Youth Programs</h3>
+                        <p>Special programs designed for youth to connect with spirituality, learn cultural values, and develop character through temple activities.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Pricing -->
+        <!-- Pricing / Donation Section -->
         <section class="pricing-section">
             <h2>Service Donations (Dakshina)</h2>
             <div class="pricing-grid">
@@ -234,8 +271,7 @@
                 </div>
             </div>
             <p class="pricing-note">
-                <strong>Note:</strong> Donations (Dakshina) are voluntary contributions to support temple maintenance, 
-                spiritual programs, and community service activities. No donation is mandatory.
+                <strong>Note:</strong> Donations (Dakshina) are voluntary contributions to support temple maintenance, spiritual programs, and community service activities. No donation is mandatory.
             </p>
         </section>
 
@@ -275,284 +311,131 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 Sri Jagannatha Temple. All rights reserved.</p>
+            <p>&copy; 2026 Sri Jagannatha Temple. All rights reserved.</p>
         </div>
     </footer>
 
     <style>
-        /* Services Page Specific Styles */
-        .services-section {
-            padding: 60px 0;
-            background: white;
+        :root {
+            --primary-color: #f57c00;
+            --primary-hover: #e65100;
+            --dark-color: #2c3e50;
+            --light-color: #fcf8f2;
+            --text-main: #34495e;
+            --text-light: #7f8c8d;
+            --danger-color: #d32f2f;
+            --white: #ffffff;
+            --max-width: 1200px;
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --accent-gold: #ffb300;
         }
 
-        .services-section h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            color: var(--dark-color);
-            margin-bottom: 3rem;
-            position: relative;
-            padding-bottom: 1rem;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: var(--text-main); background-color: #fff; }
+        .container { max-width: var(--max-width); margin: 0 auto; padding: 0 20px; }
 
-        .services-section h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: var(--primary-color);
-            border-radius: 2px;
-        }
+        .navbar { background-color: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; padding: 1rem 0; }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; }
+        .nav-brand h1 { font-size: 1.5rem; color: var(--primary-color); }
+        .nav-menu { display: flex; list-style: none; gap: 2rem; }
+        .nav-menu a { text-decoration: none; color: var(--dark-color); font-weight: 600; transition: var(--transition); }
+        .nav-menu a:hover, .nav-menu a.active { color: var(--primary-color); }
 
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
+        .hero { background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1609137144813-90343df8996b?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat; min-height: 350px !important; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--white); padding: 40px 20px; }
+        .hero-content h1 { font-size: 3rem; margin-bottom: 0.5rem; letter-spacing: 1px; }
+        .hero-content p { font-size: 1.25rem; opacity: 0.9; }
 
-        .service-card {
-            background: var(--light-color);
-            padding: 2rem;
-            border-radius: 10px;
-            text-align: center;
-            border-top: 4px solid var(--primary-color);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
+        main section h2 { text-align: center; font-size: 2.5rem; color: var(--dark-color); margin-bottom: 3rem; position: relative; padding-bottom: 1rem; margin-top: 4rem; }
+        main section h2::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 80px; height: 4px; background: var(--primary-color); border-radius: 2px; }
 
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-        }
+        .services-section { padding: 60px 0 40px 0; background: var(--white); }
+        .schedule-container { display: grid; grid-template-columns: 1fr 1.2fr; gap: 3rem; align-items: start; }
+        .schedule-block { background: var(--light-color); padding: 2.5rem; border-radius: 12px; box-shadow: var(--shadow); border-top: 5px solid var(--primary-color); }
+        .schedule-block h3 { color: var(--dark-color); font-size: 1.6rem; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem; border-bottom: 2px solid rgba(245, 124, 0, 0.15); padding-bottom: 0.75rem; }
+        .schedule-block h3 i { color: var(--primary-color); }
 
-        .service-icon {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
+        .darshan-hours { display: flex; flex-direction: column; gap: 1.25rem; }
+        .darshan-time-row { background: var(--white); padding: 1.25rem; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 8px rgba(0,0,0,0.02); border-left: 4px solid var(--primary-color); }
+        .darshan-time-row span { font-weight: 600; color: var(--dark-color); }
+        .darshan-time-row strong { color: var(--primary-hover); font-size: 1.1rem; }
+        .darshan-time-row.closure-notice { border-left-color: var(--danger-color); background: #fff5f5; }
+        .darshan-time-row.closure-notice span, .darshan-time-row.closure-notice strong { color: var(--danger-color); }
+        .closure-warning { margin-top: 1.5rem; font-size: 0.95rem; font-weight: 700; color: var(--danger-color); text-align: center; letter-spacing: 0.5px; }
 
-        .service-card h3 {
-            color: var(--dark-color);
-            margin-bottom: 1rem;
-        }
+        .aarti-table { width: 100%; border-collapse: collapse; background: var(--white); border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.02); }
+        .aarti-table th { background-color: var(--dark-color); color: var(--white); text-align: left; padding: 1rem 1.25rem; font-weight: 600; }
+        .aarti-table td { padding: 1rem 1.25rem; border-bottom: 1px solid #f1f2f6; color: var(--text-main); font-weight: 600; }
+        .aarti-table tr:last-child td { border-bottom: none; }
+        .aarti-table tr:nth-child(even) { background-color: rgba(245, 124, 0, 0.02); }
+        .aarti-dot { color: var(--primary-color); margin-right: 0.5rem; font-size: 0.9rem; }
 
-        .service-card p {
-            color: var(--text-light);
-            line-height: 1.6;
-            margin-bottom: 1rem;
-        }
+        /* Sunday Special CSS */
+        .sunday-special-section { padding: 20px 0; }
+        .sunday-card { background: linear-gradient(to bottom right, #ffffff, #fffdf9); padding: 3rem; border-radius: 16px; box-shadow: var(--shadow); border: 2px solid var(--accent-gold); }
+        .sunday-card h3 { color: var(--primary-hover); font-size: 1.8rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.75rem; }
+        .sunday-intro { font-size: 1.1rem; color: var(--text-main); margin-bottom: 2.5rem; max-width: 900px; }
+        .timeline-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; position: relative; }
+        .timeline-item { background: var(--white); padding: 1.5rem; border-radius: 10px; border-left: 4px solid var(--accent-gold); box-shadow: 0 4px 12px rgba(0,0,0,0.03); display: flex; gap: 1rem; align-items: flex-start; transition: var(--transition); }
+        .timeline-item:hover { transform: translateY(-3px); box-shadow: 0 6px 18px rgba(0,0,0,0.06); }
+        .timeline-item.highlight { border-left-color: var(--primary-color); background: rgba(245, 124, 0, 0.03); }
+        .timeline-icon { background: var(--light-color); color: var(--primary-hover); width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; box-shadow: 0 2px 6px rgba(0,0,0,0.05); }
+        .timeline-item.highlight .timeline-icon { background: var(--primary-color); color: var(--white); }
+        .timeline-content h4 { color: var(--dark-color); font-size: 1.15rem; margin-bottom: 0.25rem; }
+        .timeline-content p { color: var(--text-light); font-size: 0.9rem; line-height: 1.4; }
 
-        .service-time {
-            background: white;
-            padding: 1rem;
-            border-radius: 5px;
-            font-weight: 500;
-            color: var(--primary-color);
-        }
+        .special-services-section { padding: 60px 0; background: var(--light-color); border-radius: 16px; margin: 20px 0; }
+        .special-services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; padding: 0 20px; }
+        .special-service-card { background: var(--white); padding: 2.5rem 2rem; border-radius: 12px; text-align: center; box-shadow: var(--shadow); transition: var(--transition); }
+        .special-service-card:hover { transform: translateY(-8px); box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1); }
+        .special-service-card i { font-size: 2.5rem; color: var(--primary-color); margin-bottom: 1.25rem; }
+        .special-service-card h3 { color: var(--dark-color); margin-bottom: 0.75rem; font-size: 1.35rem; }
+        .special-service-card p { color: var(--text-light); font-size: 0.95rem; }
 
-        .special-services-section {
-            padding: 60px 0;
-            background: var(--light-color);
-        }
+        .programs-section { padding: 60px 0; background: var(--white); }
+        .programs-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; }
+        .program-item { background: var(--light-color); padding: 2rem 2rem 2rem 5rem; border-radius: 12px; border-left: 5px solid var(--primary-color); position: relative; box-shadow: 0 2px 12px rgba(0,0,0,0.03); display: flex; align-items: flex-start; }
+        .program-number { position: absolute; left: 1.25rem; top: 2rem; font-size: 1.2rem; font-weight: 800; color: var(--primary-color); background: var(--white); width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; border-radius: 50%; box-shadow: 0 2px 8px rgba(0,0,0,0.05); flex-shrink: 0; }
+        .program-body { width: 100%; }
+        .program-item h3 { color: var(--dark-color); margin-bottom: 0.5rem; font-size: 1.3rem; }
+        .program-item p { color: var(--text-main); font-size: 0.95rem; }
 
-        .special-services-section h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            color: var(--dark-color);
-            margin-bottom: 3rem;
-        }
+        .pricing-section { padding: 60px 0; background: var(--light-color); border-radius: 16px; margin: 20px 0; }
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2.5rem; margin-bottom: 3rem; padding: 0 20px; align-items: center; }
+        .pricing-card { background: var(--white); padding: 3rem 2rem; border-radius: 12px; text-align: center; box-shadow: var(--shadow); transition: var(--transition); position: relative; border: 1px solid rgba(0,0,0,0.02); }
+        .pricing-card:hover { transform: translateY(-5px); box-shadow: 0 12px 30px rgba(0,0,0,0.12); }
+        .pricing-card.featured { border: 3px solid var(--primary-color); transform: scale(1.03); padding: 3.5rem 2rem; }
+        .pricing-card.featured:hover { transform: scale(1.03) translateY(-5px); }
+        .badge { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--primary-color); color: var(--white); padding: 0.4rem 1.5rem; border-radius: 30px; font-weight: 700; font-size: 0.85rem; letter-spacing: 1px; box-shadow: 0 4px 10px rgba(245, 124, 0, 0.3); }
+        .pricing-card h3 { color: var(--dark-color); font-size: 1.6rem; margin-bottom: 1rem; }
+        .pricing-card .price { font-size: 2.2rem; font-weight: 800; color: var(--primary-hover); margin-bottom: 2rem; }
+        .pricing-card ul { list-style: none; text-align: left; margin-bottom: 1rem; }
+        .pricing-card li { padding: 0.75rem 0; color: var(--text-main); border-bottom: 1px solid #f1f2f6; font-size: 0.95rem; }
+        .pricing-card li:last-child { border-bottom: none; }
+        .pricing-note { text-align: center; color: var(--text-light); background: var(--white); padding: 1.5rem; border-radius: 10px; margin: 2rem auto 0 auto; max-width: 800px; font-size: 0.95rem; box-shadow: 0 2px 10px rgba(0,0,0,0.02); }
 
-        .special-services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
+        .cta-section { text-align: center; padding: 60px 20px; background: linear-gradient(135deg, var(--dark-color), #1a252f); color: var(--white); border-radius: 16px; margin: 40px 0; }
+        .cta-section h2 { font-size: 2.5rem; margin-bottom: 1rem; color: white; }
+        .cta-section h2::after { display: none; }
+        .cta-section p { font-size: 1.2rem; margin-bottom: 2.5rem; opacity: 0.85; }
+        .cta-button { display: inline-block; background-color: var(--primary-color); color: var(--white); padding: 1rem 3rem; text-decoration: none; font-weight: 700; border-radius: 30px; transition: var(--transition); box-shadow: 0 4px 15px rgba(245, 124, 0, 0.3); }
+        .cta-button:hover { background-color: var(--primary-hover); transform: translateY(-3px); box-shadow: 0 6px 20px rgba(245, 124, 0, 0.4); }
 
-        .special-service-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
+        .footer { background-color: #1a1a1a; color: #e0e0e0; padding: 60px 0 20px 0; margin-top: 80px; }
+        .footer-content { max-width: var(--max-width); margin: 0 auto; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 3rem; }
+        .footer-section h4 { color: var(--white); font-size: 1.2rem; margin-bottom: 1.5rem; }
+        .footer-section ul { list-style: none; }
+        .footer-section ul li { margin-bottom: 0.75rem; }
+        .footer-section a { color: #b3b3b3; text-decoration: none; transition: var(--transition); }
+        .footer-section a:hover { color: var(--primary-color); }
+        .footer-section p { margin-bottom: 0.75rem; color: #b3b3b3; }
+        .social-links { display: flex; gap: 1rem; margin-top: 1rem; }
+        .social-links a { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; background-color: #2c2c2c; border-radius: 50%; color: var(--white); transition: var(--transition); }
+        .social-links a:hover { background-color: var(--primary-color); }
+        .footer-bottom { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #2c2c2c; font-size: 0.9rem; color: #888; }
 
-        .special-service-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
-        }
-
-        .special-service-card i {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-
-        .special-service-card h3 {
-            color: var(--dark-color);
-            margin-bottom: 0.5rem;
-        }
-
-        .special-service-card p {
-            color: var(--text-light);
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        .programs-section {
-            padding: 60px 0;
-            background: white;
-        }
-
-        .programs-section h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            color: var(--dark-color);
-            margin-bottom: 3rem;
-        }
-
-        .programs-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .program-item {
-            background: var(--light-color);
-            padding: 2rem;
-            border-radius: 10px;
-            border-left: 5px solid var(--primary-color);
-            position: relative;
-            padding-left: 4rem;
-        }
-
-        .program-number {
-            position: absolute;
-            left: 1rem;
-            top: 1rem;
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--primary-color);
-            background: white;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-        }
-
-        .program-item h3 {
-            color: var(--dark-color);
-            margin-bottom: 0.5rem;
-        }
-
-        .program-item p {
-            color: var(--text-light);
-            line-height: 1.6;
-        }
-
-        .pricing-section {
-            padding: 60px 0;
-            background: var(--light-color);
-        }
-
-        .pricing-section h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            color: var(--dark-color);
-            margin-bottom: 3rem;
-        }
-
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .pricing-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .pricing-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-        }
-
-        .pricing-card.featured {
-            border-top: 5px solid var(--primary-color);
-            transform: scale(1.05);
-        }
-
-        .badge {
-            position: absolute;
-            top: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--primary-color);
-            color: var(--dark-color);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-weight: 600;
-            font-size: 0.85rem;
-        }
-
-        .pricing-card h3 {
-            color: var(--dark-color);
-            margin-bottom: 1rem;
-            margin-top: 1rem;
-        }
-
-        .pricing-card .price {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-
-        .pricing-card ul {
-            list-style: none;
-            text-align: left;
-        }
-
-        .pricing-card li {
-            padding: 0.5rem 0;
-            color: var(--text-light);
-            border-bottom: 1px solid #eee;
-        }
-
-        .pricing-card li:last-child {
-            border-bottom: none;
-        }
-
-        .pricing-note {
-            text-align: center;
-            color: var(--text-light);
-            background: white;
-            padding: 1.5rem;
-            border-radius: 10px;
-            margin-top: 2rem;
-        }
-
-        @media (max-width: 768px) {
-            .pricing-card.featured {
-                transform: scale(1);
-            }
-
-            .programs-list {
-                grid-template-columns: 1fr;
-            }
-        }
+        @media (max-width: 992px) { .schedule-container { grid-template-columns: 1fr; gap: 2rem; } .pricing-card.featured { transform: scale(1); padding: 3rem 2rem; } .pricing-card.featured:hover { transform: translateY(-5px); } }
+        @media (max-width: 768px) { .nav-container { flex-direction: column; gap: 1rem; } .hero-content h1 { font-size: 2.25rem; } main section h2 { font-size: 2rem; } .program-item { padding: 2rem; flex-direction: column; gap: 1rem; } .program-number { position: static; } .sunday-card { padding: 1.5rem; } }
     </style>
 </body>
 </html>
