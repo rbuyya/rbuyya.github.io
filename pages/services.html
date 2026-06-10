@@ -290,8 +290,8 @@
                 <img id="modalQrImg" src="../ShriJagannathaTemple_files/Image07.jpg" alt="UPI QR Code">
             </div>
             
-            <p class="modal-amount-text">Amount: <strong id="modalAmountDisplay">₹0</strong></p>
-            <p style="font-size: 0.85rem; color: #555; line-height: 1.4; padding: 0 10px;">
+            <p class="modal-amount-text" id="modalAmountContainer">Amount: <strong id="modalAmountDisplay">₹0</strong></p>
+            <p style="font-size: 0.85rem; color: #555; line-height: 1.4; padding: 0 10px;" id="modalInstructionText">
                 Scan & Pay using any BHIM UPI app like Google Pay, PhonePe, Paytm, or BHIM.
             </p>
             <div style="font-size: 0.8rem; background: #f9f9f9; padding: 6px; border-radius: 4px; display: inline-block; margin-top: 10px; border: 1px dashed #ccc;">
@@ -759,19 +759,20 @@
         function handlePayment(amount, serviceName) {
             const upiId = "9591244834@ybl";
             const MerchantName = "Shri Krishna Chaitanya Trust";
-            const note = encodeURIComponent(serviceName + " Offering");
             
-            // Standard Deep-linking fallback for quick integration
-            const upiUrl = `upi://pay?pa=${upiId}&pn=${encodeURIComponent(MerchantName)}&am=${amount}&cu=INR&tn=${note}`;
+            // Clean, simplified UPI string for broad application compatibility on mobile layout
+            const simpleUpiUrl = `upi://pay?pa=${upiId}&pn=${encodeURIComponent(MerchantName)}`;
             
             // Detect Mobile device layouts
             const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
             
             if (isMobile) {
-                // Instantly routes onto local mobile UPI apps handler
-                window.location.href = upiUrl;
+                // If on mobile, open PhonePe/GPay directly with clean VPA to prevent app security block errors.
+                // Alert the user what they are paying for right before redirection.
+                alert(`Opening payment app for: ${serviceName}\n\nPlease enter amount: ₹${amount} in your app.`);
+                window.location.href = simpleUpiUrl;
             } else {
-                // Shows localized modal containing your image07 file for desktop targets
+                // Shows localized modal containing your image07 file for desktop targets safely
                 document.getElementById('modalServiceTitle').innerText = serviceName + " Offering";
                 document.getElementById('modalAmountDisplay').innerText = "₹" + amount;
                 document.getElementById('paymentModal').style.display = "flex";
@@ -782,7 +783,6 @@
             document.getElementById('paymentModal').style.display = "none";
         }
 
-        // Auto closes layout if bounding window wrapper container box background is clicked
         window.onclick = function(event) {
             const modal = document.getElementById('paymentModal');
             if (event.target == modal) {
