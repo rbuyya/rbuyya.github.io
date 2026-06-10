@@ -224,7 +224,7 @@
                 <div class="program-item">
                     <div class="program-number">05</div>
                     <h3>Youth Programs</h3>
-                    <p>Special programs designed for youth to connect with spirituality, learn cultural values, and develop character through temple activities.</p>
+                    <p Special programs designed for youth to connect with spirituality, learn cultural values, and develop character through temple activities.</p>
                 </div>
             </div>
         </section>
@@ -232,15 +232,19 @@
         <section class="pricing-section">
             <h2>Service Donations (Dakshina)</h2>
             <div class="pricing-grid">
+                
                 <div class="pricing-card">
                     <h3>Basic Puja</h3>
-                    <p class="price">₹501 onwards</p>
+                    <p class="price">₹501</p>
                     <ul>
                         <li>✓ Individual Puja</li>
                         <li>✓ Deity Blessings</li>
                         <li>✓ Prasadam</li>
                     </ul>
-                    <button class="pay-now-btn" onclick="handlePayment(501, 'Basic Puja')">Pay Now</button>
+                    <div class="dual-btn-container">
+                        <button class="pay-btn app-btn" onclick="payViaApp(501, 'Basic Puja')"><i class="fas fa-mobile-alt"></i> Pay App</button>
+                        <button class="pay-btn qr-btn" onclick="showQrModal(501, 'Basic Puja')"><i class="fas fa-qrcode"></i> Scan QR</button>
+                    </div>
                 </div>
 
                 <div class="pricing-card featured">
@@ -253,7 +257,10 @@
                         <li>✓ Holy Water</li>
                         <li>✓ Blessed Flowers</li>
                     </ul>
-                    <button class="pay-now-btn" onclick="handlePayment(1001, 'Standard Puja')">Pay Now</button>
+                    <div class="dual-btn-container">
+                        <button class="pay-btn app-btn" onclick="payViaApp(1001, 'Standard Puja')"><i class="fas fa-mobile-alt"></i> Pay App</button>
+                        <button class="pay-btn qr-btn" onclick="showQrModal(1001, 'Standard Puja')"><i class="fas fa-qrcode"></i> Scan QR</button>
+                    </div>
                 </div>
 
                 <div class="pricing-card">
@@ -265,8 +272,12 @@
                         <li>✓ Detailed Guidance</li>
                         <li>✓ Special Prasadam</li>
                     </ul>
-                    <button class="pay-now-btn" onclick="handlePayment(5001, 'Special Ceremonies')">Pay Now</button>
+                    <div class="dual-btn-container">
+                        <button class="pay-btn app-btn" onclick="payViaApp(5001, 'Special Ceremonies')"><i class="fas fa-mobile-alt"></i> Pay App</button>
+                        <button class="pay-btn qr-btn" onclick="showQrModal(5001, 'Special Ceremonies')"><i class="fas fa-qrcode"></i> Scan QR</button>
+                    </div>
                 </div>
+
             </div>
             <p class="pricing-note">
                 <strong>Note:</strong> Donations (Dakshina) are voluntary contributions to support temple maintenance, spiritual programs, and community service activities. No donation is mandatory.
@@ -290,12 +301,12 @@
                 <img id="modalQrImg" src="../ShriJagannathaTemple_files/Image07.jpg" alt="UPI QR Code">
             </div>
             
-            <p class="modal-amount-text" id="modalAmountContainer">Amount: <strong id="modalAmountDisplay">₹0</strong></p>
-            <p style="font-size: 0.85rem; color: #555; line-height: 1.4; padding: 0 10px;" id="modalInstructionText">
-                Scan & Pay using any BHIM UPI app like Google Pay, PhonePe, Paytm, or BHIM.
+            <p class="modal-amount-text">Amount: <strong id="modalAmountDisplay">₹0</strong></p>
+            <p style="font-size: 0.85rem; color: #555; line-height: 1.4; padding: 0 10px;">
+                Scan this QR code using any UPI app like Google Pay, PhonePe, Paytm, or BHIM. Mobile users can screenshot this window to scan from their app's gallery.
             </p>
             <div style="font-size: 0.8rem; background: #f9f9f9; padding: 6px; border-radius: 4px; display: inline-block; margin-top: 10px; border: 1px dashed #ccc;">
-                VPA: <strong>9591244834@ybl</strong>
+                VPA: <strong>7829780073m@pnb</strong>
             </div>
         </div>
     </div>
@@ -607,7 +618,7 @@
 
         .pricing-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 2rem;
             margin-bottom: 2rem;
         }
@@ -660,26 +671,48 @@
             color: #555;
         }
 
-        .pay-now-btn {
-            background: #ff9933;
-            color: white;
-            border: none;
-            padding: 0.8rem 1.5rem;
+        /* Dual Buttons CSS Engine Placement layout configuration */
+        .dual-btn-container {
+            display: flex;
+            gap: 10px;
             margin-top: 1.5rem;
-            border-radius: 5px;
-            font-size: 1rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background 0.2s ease, transform 0.1s ease;
             width: 100%;
         }
 
-        .pay-now-btn:hover {
+        .pay-btn {
+            border: none;
+            padding: 0.8rem 0.5rem;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.1s;
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            color: white;
+        }
+
+        .app-btn {
+            background: #28a745;
+        }
+
+        .app-btn:hover {
+            background: #218838;
+        }
+
+        .qr-btn {
+            background: #ff9933;
+        }
+
+        .qr-btn:hover {
             background: #e68523;
         }
 
-        .pay-now-btn:active {
-            transform: scale(0.98);
+        .pay-btn:active {
+            transform: scale(0.97);
         }
 
         /* Custom UPI Modal Pop-up Styling Framework */
@@ -756,25 +789,28 @@
     </style>
 
     <script>
-        function handlePayment(amount, serviceName) {
-            const upiId = "7829780073m@pnb";
-            const MerchantName = "Shri Krishna Chaitanya Trust";
-            
-            // Constructs deep link parameters: am (Amount), cu (Currency code), and tn (Transaction Note)
-            const simpleUpiUrl = `upi://pay?pa=${upiId}&pn=${encodeURIComponent(MerchantName)}&am=${amount}&cu=INR&tn=${encodeURIComponent(serviceName + " Offering")}`;
-            
-            // Detect Mobile device layouts
+        // Core configuration variables targeting Punjab National Bank
+        const upiId = "7829780073m@pnb";
+        const MerchantName = "Shri Krishna Chaitanya Trust";
+
+        // Action 1: Formulate link string structure and attempt native launch execution
+        function payViaApp(amount, serviceName) {
+            const upiUrl = `upi://pay?pa=${upiId}&pn=${encodeURIComponent(MerchantName)}&am=${amount}&cu=INR&tn=${encodeURIComponent(serviceName + " Offering")}`;
             const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
             
             if (isMobile) {
-                // Instantly redirect without synchronous text blocks (alert) so mobile security frameworks allow it
-                window.location.href = simpleUpiUrl;
+                window.location.href = upiUrl;
             } else {
-                // Desktop targets: Shows fallback payment modal
-                document.getElementById('modalServiceTitle').innerText = serviceName + " Offering";
-                document.getElementById('modalAmountDisplay').innerText = "₹" + amount;
-                document.getElementById('paymentModal').style.display = "flex";
+                // Smooth safe fallback for desktop clickers who press the app button
+                showQrModal(amount, serviceName);
             }
+        }
+
+        // Action 2: Trigger visual display properties of popup window
+        function showQrModal(amount, serviceName) {
+            document.getElementById('modalServiceTitle').innerText = serviceName + " Offering";
+            document.getElementById('modalAmountDisplay').innerText = "₹" + amount;
+            document.getElementById('paymentModal').style.display = "flex";
         }
 
         function closeModal() {
