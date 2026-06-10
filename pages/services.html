@@ -760,19 +760,17 @@
             const upiId = "9591244834@ybl";
             const MerchantName = "Shri Krishna Chaitanya Trust";
             
-            // Clean, simplified UPI string for broad application compatibility on mobile layout
-            const simpleUpiUrl = `upi://pay?pa=${upiId}&pn=${encodeURIComponent(MerchantName)}`;
+            // Constructs deep link parameters: am (Amount), cu (Currency code), and tn (Transaction Note)
+            const simpleUpiUrl = `upi://pay?pa=${upiId}&pn=${encodeURIComponent(MerchantName)}&am=${amount}&cu=INR&tn=${encodeURIComponent(serviceName + " Offering")}`;
             
             // Detect Mobile device layouts
             const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
             
             if (isMobile) {
-                // If on mobile, open PhonePe/GPay directly with clean VPA to prevent app security block errors.
-                // Alert the user what they are paying for right before redirection.
-                alert(`Opening payment app for: ${serviceName}\n\nPlease enter amount: ₹${amount} in your app.`);
+                // Instantly redirect without synchronous text blocks (alert) so mobile security frameworks allow it
                 window.location.href = simpleUpiUrl;
             } else {
-                // Shows localized modal containing your image07 file for desktop targets safely
+                // Desktop targets: Shows fallback payment modal
                 document.getElementById('modalServiceTitle').innerText = serviceName + " Offering";
                 document.getElementById('modalAmountDisplay').innerText = "₹" + amount;
                 document.getElementById('paymentModal').style.display = "flex";
