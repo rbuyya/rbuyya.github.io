@@ -1,1 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sri Jagannatha Temple Bidar - Services, Events and Spiritual Darshan">
+    <title>Services & Events - Sri Jagannatha Temple Bidar</title>
+    <!-- Linking back to your root stylesheet -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Specific page adjustments for tabs, lists, and tables */
+        .services-section {
+            margin-bottom: 50px;
+        }
+        
+        .sub-heading-center {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--text-dark);
+            font-size: 1.2rem;
+        }
+
+        /* Shringar Darshan Grid Layout */
+        .shringar-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .shringar-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .shringar-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+        }
+
+        .shringar-card h4 {
+            color: var(--primary-color);
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Spiritual Leaders Section Styling */
+        .leaders-layout {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .leader-box {
+            background-color: #fff;
+            border-left: 5px solid var(--accent-color);
+            padding: 20px;
+            border-radius: 4px;
+            box-shadow: var(--shadow);
+        }
+
+        .leader-box h3 {
+            color: var(--secondary-color);
+            margin-bottom: 8px;
+        }
+
+        /* Video Interactive Table Design */
+        .events-table-wrapper {
+            overflow-x: auto;
+            background: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+        }
+
+        .custom-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        .custom-table th, .custom-table td {
+            padding: 15px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .custom-table th {
+            background-color: #fcf6ee;
+            color: var(--secondary-color);
+            font-weight: 700;
+        }
+
+        .youtube-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: #ff0000;
+            color: #fff !important;
+            padding: 6px 14px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .youtube-btn:hover {
+            background-color: #cc0000;
+            transform: scale(1.03);
+        }
+
+        /* Ratha Yatra Milestone Tracking Layout */
+        .ratha-milestones {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .milestone-card {
+            background-color: #fff;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 30px;
+            position: relative;
+            box-shadow: var(--shadow);
+        }
+
+        .milestone-badge {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: var(--primary-color);
+            color: #fff;
+            padding: 3px 12px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        .milestone-card h3 {
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .milestone-card ul {
+            margin-top: 15px;
+        }
+
+        .milestone-card ul li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .milestone-card ul li::before {
+            content: "•";
+            color: var(--accent-color);
+            font-weight: bold;
+            font-size: 1.2rem;
+            position: absolute;
+            left: 0;
+            top: -2px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Header -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h1> 🛕 Shri Jagannath Temple | Bidar </h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html" class="active">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Subpage Hero Banner -->
+    <section class="hero" style="height: 35vh; min-height: 250px;">
+        <div class="hero-content">
+            <h1>Temple Services & Events</h1>
+            <p>Experience Divine Bliss and Community Fellowship in Bidar</p>
+        </div>
+    </section>
+
+    <!-- Main Dynamic Content Wrapper -->
+    <main class="container" style="padding-top: 50px;">
+
+        <!-- SECTION 1: TYPES OF SHRINGAR DARSHAN -->
+        <section class="services-section">
+            <h2>Types of Shringar Darshan</h2>
+            <p class="sub-heading-center">Glimpse the divine transformations and beautiful ceremonial vestments of the Deities throughout daily timelines and holy occasions.</p>
+            
+            <div class="shringar-grid">
+                <div class="shringar-card">
+                    <h4><i class="fas fa-sun"></i> Mangala Besha</h4>
+                    <p>The early dawn awakening attire. The Deities are dressed gently in soft, immaculate cotton cloths called <em>Khandua</em> fabrics, bringing peace to early morning pilgrims.</p>
+                </div>
+                <div class="shringar-card">
+                    <h4><i class="fas fa-water"></i> Abakasha Darshan</h4>
+                    <p>The morning bathing dress arrangement. Tailored specifically for the regular sacred tooth-brushing, water ablation, and pure cleansing rituals of the Lord.</p>
+                </div>
+                <div class="shringar-card">
+                    <h4><i class="fas fa-spa"></i> Bada Singhara Besha</h4>
+                    <p>The highly artistic evening sleeping attire. The Deities are beautifully garlanded in rich local blossoms, fragrant jasmines, and special handwoven silks inscribed with sacred verses.</p>
+                </div>
+                <div class="shringar-card">
+                    <h4><i class="fas fa-crown"></i> Suna Besha (Regal Gold)</h4>
+                    <p>A mesmerizing occasional appearance where Lord Jagannath, Balabhadra, and Subhadra Devi are dressed completely in beautiful, heavy solid gold ornaments on special high-festive dates.</p>
+                </div>
+                <div class="shringar-card">
+                    <h4><i class="fas fa-om"></i> Gajanana / Hathi Besha</h4>
+                    <p>Celebrated beautifully on the afternoon of Snana Purnima. The holy deities are intricately adorned with elephant masks and attire, echoing the beloved appearance of Lord Ganesha.</p>
+                </div>
+                <div class="shringar-card">
+                    <h4><i class="fas fa-mountain"></i> Giri Govardhana Besha</h4>
+                    <p>A beautiful seasonal special arrangement depicting the transcendental pastimes of Lord Krishna lifting the massive Govardhan Hill to protect the resident devotees.</p>
+                </div>
+            </div>
+        </section>
+
+        <hr style="border: 0; height: 1px; background: var(--border-color); margin: 40px 0;">
+
+        <!-- SECTION 2: SPIRITUAL LEADERS VISITED -->
+        <section class="services-section">
+            <h2>Eminent Spiritual Leaders</h2>
+            <p class="sub-heading-center">We have been deeply honored to host globally revered leaders who shared profound insights with our Bidar community.</p>
+            
+            <div class="leaders-layout">
+                <div class="leader-box">
+                    <h3>HG Amogh Leela Prabhu</h3>
+                    <p>Renowned motivational speaker, lifestyle counselor, and senior monk who consistently illuminates deep Vedic scriptural context using delightful real-world humor and easy logic.</p>
+                </div>
+                <div class="leader-box">
+                    <h3>HG Radhika Krpa Devi Dasi</h3>
+                    <p>Greatly loved speaker and kirtan singer who fills the hearts of local audiences with sweet, deeply emotional discourses on pure Bhakti philosophy and community devotion.</p>
+                </div>
+                <div class="leader-box" style="border-left-style: dashed; opacity: 0.75;">
+                    <h3>Upcoming Visiting Acharyas</h3>
+                    <p>Our Trust continually invites acclaimed national saints, bhajan musicians, and public thinkers. Check back here regularly for upcoming calendar schedules!</p>
+                </div>
+            </div>
+        </section>
+
+        <hr style="border: 0; height: 1px; background: var(--border-color); margin: 40px 0;">
+
+        <!-- SECTION 3: 10 EVENTS WITH YOUTUBE LINKS -->
+        <section class="services-section">
+            <h2>Top 10 Annual Temple Events</h2>
+            <p class="sub-heading-center">Participate in our vibrant year-round festivals. Click any live video track button below to catch past highlight visual recordings!</p>
+            
+            <div class="events-table-wrapper">
+                <table class="custom-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 25%;">Festival / Event Name</th>
+                            <th style="width: 55%;">Significance & Temple Celebrations</th>
+                            <th style="width: 20%;">Watch Video</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>1. Sri Jagannath Ratha Yatra</strong></td>
+                            <td>The majestic chariot festival bringing the Lord outside the sanctum sanctorum to meet and bless all people.</td>
+                            <td><a href="https://www.youtube.com" target="_blank" class="youtube-btn"><i class="fab fa-youtube"></i> Watch Live</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>2. Snana Yatra Celebration</strong></td>
+                            <td>A joyful open bathing festival where the Deities are bathed with 108 fragrant water pots.</td>
+                            <td><a href="https://www.youtube.com" target="_blank" class="youtube-btn"><i class="fab fa-youtube"></i> Highlights</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>3. Shri Krishna Janmashtami</strong></td>
+                            <td>The glorious appearance of Lord Krishna featuring midnight Maha-Abhishek and grand feast arrangements.</td>
+                            <td><a href="https://www.youtube.com" target="_blank" class="youtube-btn"><i class="fab fa-youtube"></i> Puja Track</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>4. Shri Radhashtami</strong></td>
+                            <td>Celebrating Shrimati Radharani's appearance day with pristine, colorful local flower structures and special songs.</td>
+                            <td><a href="https://www.youtube.com" target="_blank" class="youtube-btn"><i class="fab fa-youtube"></i> Festival Clip</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>5. Kartik Maas / Deepotsava</strong></td>
+                            <td>A holy month-long lamp festival where hundreds of earthen diyas are lit up inside the premises nightly.</td>
+                            <td><a href="https://www.youtube.com" target="_blank" class="youtube-btn"><i class="fab fa-youtube"></i> Darshan Video</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>6. Shri Gaura Purnima</strong></td>
+                            <td>The divine advent festival of Chaitanya Mahaprabhu marked by joyous congregation chanting and colors.</td>
+                            <td><a href="https://www.youtube.com" target="_blank" class="youtube-btn"><i class="fab fa-youtube"></i> Watch Kirtan</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>7. Jagannath Mishra Utsav</strong></td>
+                            <td>Observed the day directly following Gaura Purnima, honoring an abundant feast cooked in traditional community style.</td>
+                            <td><a href="https://www.youtube.com" target="_blank" class="youtube-btn"><i class="fab fa-youtube"></i> Mahaprasad</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>8. Nityananda Trayodashi</strong></td>
+                            <td>Celebrating the dynamic advent of Lord Nityananda with beautifully organized public processions and distribution.</td>
+                            <td><a href="https://www.youtube.com" target="_blank" class="youtube-btn"><i class="fab fa-youtube"></i> Procession</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>9. Chandan Yatra Days</strong></td>
+                            <td>An elegant summer relief event where the divine Deities are cooling-coated in real hand-ground sandalwood paste.</td>
+                            <td><a href="https://www.youtube.com" target="_blank" class="youtube-btn"><i class="fab fa-youtube"></i> Shringar Track</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>10. Shrimad Gita Jayanti</strong></td>
+                            <td>Commemorating the spoken discourse of the Bhagavad Gita with large-scale local public chanting of all 18 chapters.</td>
+                            <td><a href="https://www.youtube.com" target="_blank" class="youtube-btn"><i class="fab fa-youtube"></i> Chanting Log</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <hr style="border: 0; height: 1px; background: var(--border-color); margin: 40px 0;">
+
+        <!-- SECTION 4: RATHA YATRA 2025 & 2026 -->
+        <section class="services-section" style="margin-bottom: 70px;">
+            <h2>Ratha Yatra Milestone Highlights</h2>
+            <p class="sub-heading-center">Tracking the historic spiritual footprints of Bidar's most anticipated annual chariot gathering.</p>
+            
+            <div class="ratha-milestones">
+                <!-- Ratha Yatra 2025 -->
+                <div class="milestone-card">
+                    <span class="milestone-badge">Past Glory</span>
+                    <h3>Ratha Yatra 2025</h3>
+                    <p>An unforgettable spiritual victory for the Mamankeri community. Tens of thousands gathered in unified harmony.</p>
+                    <ul>
+                        <li>Massive <strong>Maha-Prasadam distribution</strong> to over 5,000 local visitors.</li>
+                        <li>Non-stop enthusiastic congregational singing groups filling the district with positive energy.</li>
+                        <li>Flawless chariot navigation supported beautifully by local volunteer divisions.</li>
+                    </ul>
+                </div>
+                
+                <!-- Ratha Yatra 2026 -->
+                <div class="milestone-card" style="border-color: var(--accent-color);">
+                    <span class="milestone-badge" style="background-color: #27ae60;">Upcoming</span>
+                    <h3>Ratha Yatra 2026</h3>
+                    <p><strong>Scheduled Launch: Friday, July 16, 2026</strong>. Plans are currently underway to make this our most magnificent street procession yet!</p>
+                    <ul>
+                        <li>Brand new security layouts and grand chariot structure reinforcements.</li>
+                        <li>Expanded cultural stage showcases for national bhajan and spiritual drama troupes.</li>
+                        <li>Special guest keynotes scheduled with traveling international monks.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer Area (Paths fixed to reflect pages subfolder placement) -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Info</h4>
+                <p>📍 WGQ9+HX7, Mamankeri, Bidar, Karnataka 585401</p>
+                <p>📞 <a href="tel:+917780614325">+91 77806 14325</a></p>
+                <p>📧 <a href="mailto:shri.krishnachaitanya.trust@gmail.com">shri.krishnachaitanya.trust@gmail.com</a></p>
+            </div>
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/share/1EyH72Rgup/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/sri_jagannath_temple_?igsh=MmMyendvdWlteHky" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                    <a href="https://youtube.com/@shrijagannathtemplebidar?si=4Ln0bF5qKDkQHlsB" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Sri Jagannatha Temple. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
 
