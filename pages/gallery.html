@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Sri Jagannatha Temple Bidar - Services, Events and Spiritual Darshan">
-    <title>Services & Events - Sri Jagannatha Temple Bidar</title>
-    <!-- Linking back to your root stylesheet -->
+    <meta name="description" content="Sri Jagannatha Temple Bidar - Divine Visual Gallery, Darshan, and Events Log">
+    <title>Gallery - Sri Jagannatha Temple Bidar</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* Specific page adjustments for tabs, lists, and tables */
-        .services-section {
+        /* Specific page adjustments for Gallery Photo Grid & Information sections */
+        .gallery-section {
             margin-bottom: 50px;
         }
         
@@ -19,6 +18,103 @@
             margin-bottom: 30px;
             color: var(--text-dark);
             font-size: 1.2rem;
+        }
+
+        /* Subtle Section Header Highlights for Titles 1, 2, and 3 */
+        .gallery-section h2.highlighted-title {
+            display: table;
+            margin: 0 auto 15px auto;
+            padding-bottom: 5px;
+            border-bottom: 3px solid var(--accent-color);
+            color: var(--secondary-color);
+            font-weight: 800;
+        }
+
+        .gallery-section h2.highlighted-title::after {
+            display: none; /* Disables standard style.css global line overlay */
+        }
+
+        /* Interactive Photo Filters */
+        .gallery-filter {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            color: var(--text-dark);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            border-color: var(--primary-color);
+        }
+
+        /* Base Photo Grid Layout */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+
+        .gallery-item {
+            background-color: var(--bg-card);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .img-container {
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 4 / 3;
+            background-color: #eee;
+        }
+
+        .img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover .img-container img {
+            transform: scale(1.08);
+        }
+
+        .gallery-info {
+            padding: 15px 20px;
+        }
+
+        .gallery-info h4 {
+            color: var(--secondary-color);
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .gallery-info p {
+            font-size: 0.85rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         /* Shringar Darshan Grid Layout */
@@ -36,11 +132,6 @@
             padding: 25px;
             box-shadow: var(--shadow);
             transition: var(--transition);
-        }
-        
-        .shringar-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
         }
 
         .shringar-card h4 {
@@ -152,6 +243,8 @@
 
         .milestone-card ul {
             margin-top: 15px;
+            list-style: none;
+            padding-left: 0;
         }
 
         .milestone-card ul li {
@@ -173,7 +266,6 @@
 </head>
 <body>
 
-    <!-- Navigation Header -->
     <nav class="navbar">
         <div class="container">
             <div class="nav-brand">
@@ -181,29 +273,67 @@
             </div>
             <ul class="nav-menu">
                 <li><a href="../index.html">Home</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="gallery.html" class="active">Gallery</a></li>
                 <li><a href="about.html">About</a></li>
-                <li><a href="services.html" class="active">Services</a></li>
+                <li><a href="services.html">Services</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Subpage Hero Banner -->
     <section class="hero" style="height: 35vh; min-height: 250px;">
         <div class="hero-content">
-            <h1>Temple Services & Events</h1>
-            <p>Experience Divine Bliss and Community Fellowship in Bidar</p>
+            <h1>Sacred Media Gallery</h1>
+            <p>Visual Glimpses of Transcendental Darshans and Festive Gatherings</p>
         </div>
     </section>
 
-    <!-- Main Dynamic Content Wrapper -->
     <main class="container" style="padding-top: 50px;">
+        
+        <section class="gallery-section">
+            <div class="gallery-filter">
+                <button class="filter-btn active">All Images</button>
+                <button class="filter-btn">Darshan</button>
+                <button class="filter-btn">Festivals</button>
+                <button class="filter-btn">Architecture</button>
+            </div>
 
-        <!-- SECTION 1: TYPES OF SHRINGAR DARSHAN -->
-        <section class="services-section">
-            <h2>Types of Shringar Darshan</h2>
-            <p class="sub-heading-center">Glimpse the divine transformations and beautiful ceremonial vestments of the Deities throughout daily timelines and holy occasions.</p>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <div class="img-container">
+                        <img src="https://images.unsplash.com/photo-1621360841013-c7683c659ec6?auto=format&fit=crop&w=600&q=80" alt="Lord Jagannath Mahaprabhu">
+                    </div>
+                    <div class="gallery-info">
+                        <h4>Shri Jagannath Mahaprabhu</h4>
+                        <p>Darshan</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="img-container">
+                        <img src="https://images.unsplash.com/photo-1601574901174-5fe39a2fb6a7?auto=format&fit=crop&w=600&q=80" alt="Ratha Yatra Procession">
+                    </div>
+                    <div class="gallery-info">
+                        <h4>Annual Ratha Yatra Chariot</h4>
+                        <p>Festivals</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="img-container">
+                        <img src="https://images.unsplash.com/photo-1609137144813-2d2ecb27a694?auto=format&fit=crop&w=600&q=80" alt="Temple Shikhara">
+                    </div>
+                    <div class="gallery-info">
+                        <h4>Temple Shikhara Architecture</h4>
+                        <p>Architecture</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr style="border: 0; height: 1px; background: var(--border-color); margin: 40px 0;">
+
+        <section class="gallery-section">
+            <h2 class="highlighted-title">1. Types of Shringar Darshan</h2>
+            <p class="sub-heading-center">The visual logs of the deep transcendental transformations and ceremonial decorations of the Deities.</p>
             
             <div class="shringar-grid">
                 <div class="shringar-card">
@@ -235,10 +365,9 @@
 
         <hr style="border: 0; height: 1px; background: var(--border-color); margin: 40px 0;">
 
-        <!-- SECTION 2: SPIRITUAL LEADERS VISITED -->
-        <section class="services-section">
-            <h2>Eminent Spiritual Leaders</h2>
-            <p class="sub-heading-center">We have been deeply honored to host globally revered leaders who shared profound insights with our Bidar community.</p>
+        <section class="gallery-section">
+            <h2 class="highlighted-title">2. Eminent Spiritual Leaders</h2>
+            <p class="sub-heading-center">Visual logs and guest records of globally revered teachers who have visited our Bidar temple premises.</p>
             
             <div class="leaders-layout">
                 <div class="leader-box">
@@ -258,9 +387,8 @@
 
         <hr style="border: 0; height: 1px; background: var(--border-color); margin: 40px 0;">
 
-        <!-- SECTION 3: 10 EVENTS WITH YOUTUBE LINKS -->
-        <section class="services-section">
-            <h2>Top 10 Annual Temple Events</h2>
+        <section class="gallery-section">
+            <h2 class="highlighted-title">3. Top 10 Annual Temple Events</h2>
             <p class="sub-heading-center">Participate in our vibrant year-round festivals. Click any live video track button below to catch past highlight visual recordings!</p>
             
             <div class="events-table-wrapper">
@@ -330,13 +458,11 @@
 
         <hr style="border: 0; height: 1px; background: var(--border-color); margin: 40px 0;">
 
-        <!-- SECTION 4: RATHA YATRA 2025 & 2026 -->
-        <section class="services-section" style="margin-bottom: 70px;">
+        <section class="gallery-section" style="margin-bottom: 70px;">
             <h2>Ratha Yatra Milestone Highlights</h2>
             <p class="sub-heading-center">Tracking the historic spiritual footprints of Bidar's most anticipated annual chariot gathering.</p>
             
             <div class="ratha-milestones">
-                <!-- Ratha Yatra 2025 -->
                 <div class="milestone-card">
                     <span class="milestone-badge">Past Glory</span>
                     <h3>Ratha Yatra 2025</h3>
@@ -348,7 +474,6 @@
                     </ul>
                 </div>
                 
-                <!-- Ratha Yatra 2026 -->
                 <div class="milestone-card" style="border-color: var(--accent-color);">
                     <span class="milestone-badge" style="background-color: #27ae60;">Upcoming</span>
                     <h3>Ratha Yatra 2026</h3>
@@ -364,7 +489,6 @@
 
     </main>
 
-    <!-- Footer Area (Paths fixed to reflect pages subfolder placement) -->
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-section">
@@ -399,4 +523,3 @@
 
 </body>
 </html>
-
