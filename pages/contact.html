@@ -26,12 +26,12 @@
     </nav>
 
     <!-- Hero Section -->
-<section class="hero" style="min-height: 300px; padding: 100px 20px; background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../ShriJagannathaTemple_files/image001.jpg') no-repeat center center/cover;">
-    <div class="hero-content" style="color: white; text-align: center;">
-        <h1 style="color: white; margin-bottom: 10px; font-size: 3rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Contact Us</h1>
-        <p style="color: #f0f0f0; font-size: 1.2rem; text-shadow: 1px 1px 3px rgba(0,0,0,0.5);">Get in Touch with Shri Jagannatha Temple</p>
-    </div>
-</section>
+    <section class="hero" style="min-height: 300px; padding: 100px 20px; background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../ShriJagannathaTemple_files/image001.jpg') no-repeat center center/cover;">
+        <div class="hero-content" style="color: white; text-align: center;">
+            <h1 style="color: white; margin-bottom: 10px; font-size: 3rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Contact Us</h1>
+            <p style="color: #f0f0f0; font-size: 1.2rem; text-shadow: 1px 1px 3px rgba(0,0,0,0.5);">Get in Touch with Shri Jagannatha Temple</p>
+        </div>
+    </section>
 
     <!-- Main Content -->
     <main class="container">
@@ -54,9 +54,13 @@
                         <i class="fas fa-phone"></i>
                     </div>
                     <h3>Phone</h3>
-                    <p><a href="tel:+917780614325">+91 77806 14325, +91 9535328891, +91 9901703583</a></p>
+                    <p style="display: flex; flex-direction: column; gap: 0.25rem;">
+                        <a href="tel:+917780614325">+91 77806 14325</a>
+                        <a href="tel:+919535328891">+91 95353 28891</a>
+                        <a href="tel:+919901703583">+91 99017 03583</a>
+                    </p>
                     <p>Available 9:00 AM - 9:00 PM</p>
-                    <p><strong>WhatsApp:</strong> +91 78297 80073 </p>
+                    <p><strong>WhatsApp:</strong> <a href="https://wa.me/917829780073" target="_blank" rel="noopener noreferrer">+91 78297 80073</a></p>
                 </div>
 
                 <div class="contact-info-card">
@@ -125,18 +129,18 @@
 
         <!-- Map Section -->
         <section class="map-section">
-    <h2>Find Us on Map</h2>
-    <div class="map-container">
-        <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3800.7495393430374!2d77.5312379!3d17.9439603!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcef52da703ebfb%3A0x89ee14418f77d34b!2sSHRI%20JAGANNATH%20TEMPLE!5e0!3m2!1sen!2sin!4v1718320000000!5m2!1sen!2sin"
-            width="100%" 
-            height="400" 
-            style="border:0; border-radius: 10px;" 
-            allowfullscreen="" 
-            loading="lazy" 
-            referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
-    </div>
+            <h2>Find Us on Map</h2>
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3800.7495393430374!2d77.5312379!3d17.9439603!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcef52da703ebfb%3A0x89ee14418f77d34b!2sSHRI%20JAGANNATH%20TEMPLE!5e0!3m2!1sen!2sin!4v1718320000000!5m2!1sen!2sin"
+                    width="100%" 
+                    height="400" 
+                    style="border:0; border-radius: 10px;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
         </section>
 
         <!-- FAQ Section -->
@@ -160,7 +164,13 @@
                         How do I book a puja or special service?
                     </h3>
                     <p>
-                        You can book services by calling us at +91 7780614325, +91 9535328891, +91 9901703583 or emailing us or visiting the temple in person. 
+                        You can book services by calling us at 
+                        <span class="faq-phones">
+                            <a href="tel:+917780614325">+91 77806 14325</a>, 
+                            <a href="tel:+919535328891">+91 95353 28891</a>,
+                            <a href="tel:+919901703583">+91 99017 03583</a>
+                        </span> 
+                        or emailing us or visiting the temple in person. 
                         Use our contact form above to send a message, and our team will get back to you within 24 hours 
                         with booking details and pricing information.
                     </p>
@@ -253,16 +263,23 @@
                 </ul>
             </div>
             <div class="footer-section">
-    <h4>Contact Info</h4>
-    <p style="line-height: 1.6; margin-bottom: 15px;">
-        📍 Sri Jagannath Temple<br>
-        Chikpet, Hyderabad bypass road<br>
-        Kabirwada, Bidar, Karnataka - 585401
-    </p>
-    <p style="margin-bottom: 10px;">📞 +91 7780614325 , +91 9535328891, +91 9901703583 </p>
-    <p>📧 shri.krishnachaitanya.trust@gmail.com</p>
-</div>
-<div class="footer-section">
+                <h4>Contact Info</h4>
+                <p style="line-height: 1.6; margin-bottom: 15px;">
+                    📍 Sri Jagannath Temple<br>
+                    Chikpet, Hyderabad bypass road<br>
+                    Kabirwada, Bidar, Karnataka - 585401
+                </p>
+                <div class="footer-phone-container" style="margin-bottom: 10px; line-height: 1.6;">
+                    <span>📞 </span>
+                    <div class="footer-phone-links" style="display: inline-block; vertical-align: top;">
+                        <a href="tel:+917780614325" style="color: inherit; text-decoration: none;">+91 77806 14325</a>, <br>
+                        <a href="tel:+919535328891" style="color: inherit; text-decoration: none;">+91 95353 28891</a>, <br>
+                        <a href="tel:+919901703583" style="color: inherit; text-decoration: none;">+91 99017 03583</a>
+                    </div>
+                </div>
+                <p>📧 <a href="mailto:shri.krishnachaitanya.trust@gmail.com" style="color: inherit; text-decoration: none; word-break: break-all;">shri.krishnachaitanya.trust@gmail.com</a></p>
+            </div>
+            <div class="footer-section">
                 <h4>Follow Us</h4>
                 <div class="social-links">
                     <a href="https://www.facebook.com/share/1EyH72Rgup/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
@@ -277,6 +294,14 @@
     </footer>
 
     <style>
+        :root {
+            --primary-color: #d4a574;
+            --dark-color: #333;
+            --light-color: #f9f9f9;
+            --text-light: #666;
+            --border-color: #ddd;
+        }
+
         .contact-info-section {
             padding: 60px 0;
             background: white;
@@ -320,6 +345,7 @@
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
+            min-width: 0; 
         }
 
         .contact-info-card:hover {
@@ -343,16 +369,43 @@
             color: var(--text-light);
             line-height: 1.8;
             margin-bottom: 0.5rem;
+            text-align: center;
         }
 
         .contact-info-card a {
             color: var(--primary-color);
             text-decoration: none;
             font-weight: 500;
+            display: inline-block;
+            word-break: break-word; 
+            overflow-wrap: break-word;
         }
 
         .contact-info-card a:hover {
             text-decoration: underline;
+        }
+
+        /* FAQ Specific Phone Fixes */
+        .faq-phones {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .faq-phones a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .faq-phones a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer Interaction Fixes */
+        .footer-phone-links a:hover {
+            text-decoration: underline;
+            color: var(--primary-color) !important;
         }
 
         .contact-form-section {
@@ -551,5 +604,3 @@
     </script>
 </body>
 </html>
-
-```
