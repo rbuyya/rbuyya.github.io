@@ -35,14 +35,42 @@
             letter-spacing: 0.5px;
         }
 
-        /* SECTION 1: Top 10 Shringar Darshan Layout */
-        .shringar-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        /* SECTION 1: Single Row Slide-by-Slide Shringar Layout */
+        .shringar-slider-container {
+            position: relative;
+            width: 100%;
+        }
+
+        .shringar-slider-row {
+            display: flex;
             gap: 25px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            snap-type: x mandatory;
+            padding: 15px 5px 25px 5px;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .shringar-slider-row::-webkit-scrollbar,
+        .track-photo-row::-webkit-scrollbar {
+            height: 8px;
         }
         
+        .shringar-slider-row::-webkit-scrollbar-track,
+        .track-photo-row::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        
+        .shringar-slider-row::-webkit-scrollbar-thumb,
+        .track-photo-row::-webkit-scrollbar-thumb {
+            background: var(--accent-color, #f39c12);
+            border-radius: 10px;
+        }
+
         .shringar-card {
+            flex: 0 0 320px; 
+            snap-align: start;
             background: var(--bg-card, #fff);
             border: 1px solid var(--border-color, #eaeaea);
             border-radius: 12px;
@@ -107,11 +135,12 @@
             line-height: 1.5;
         }
 
-        /* SECTION 2: Yatra Timeline Grid */
+        /* SECTION 2: Yatra Timeline Grid & Dynamic Display Box */
         .yatra-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
             gap: 25px;
+            margin-bottom: 30px;
         }
 
         .yatra-card {
@@ -120,11 +149,15 @@
             overflow: hidden;
             box-shadow: var(--shadow, 0 4px 15px rgba(0,0,0,0.05));
             border: 1px solid var(--border-color, #eaeaea);
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
         }
 
-        .yatra-card:hover {
-            transform: translateY(-3px);
+        .yatra-card:hover, .yatra-card.active-card {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(211, 84, 0, 0.15);
+            border-color: var(--primary-color, #d35400);
         }
 
         .yatra-img {
@@ -156,6 +189,114 @@
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.5px;
+        }
+
+        .click-hint {
+            font-size: 0.75rem;
+            color: #999;
+            margin-top: 5px;
+            font-style: italic;
+        }
+
+        /* Dynamic Detail Viewer Box */
+        .track-viewer-panel {
+            background: #fff;
+            border: 2px solid var(--primary-color, #d35400);
+            border-radius: 16px;
+            padding: 30px;
+            margin-top: 25px;
+            display: none; /* Controlled via Javascript */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            animation: fadeInPanel 0.4s ease-out;
+        }
+
+        @keyframes fadeInPanel {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .track-viewer-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        .track-viewer-header h3 {
+            color: var(--secondary-color, #2c3e50);
+            font-size: 1.6rem;
+            margin: 0;
+        }
+
+        .track-viewer-header .track-tag {
+            background: var(--accent-color, #f39c12);
+            color: #fff;
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        .track-viewer-desc {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: #444;
+            margin-bottom: 25px;
+        }
+
+        .track-photo-heading {
+            font-size: 1.2rem;
+            color: var(--secondary-color, #2c3e50);
+            margin-bottom: 15px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* 10 Photo Slider inside Selected View Track */
+        .track-photo-row {
+            display: flex;
+            gap: 15px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding-bottom: 15px;
+            snap-type: x mandatory;
+        }
+
+        .track-slide-item {
+            flex: 0 0 200px;
+            aspect-ratio: 1 / 1;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #eee;
+            snap-align: start;
+            position: relative;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+
+        .track-slide-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .track-slide-item:hover img {
+            transform: scale(1.08);
+        }
+
+        .photo-counter-tag {
+            position: absolute;
+            bottom: 8px;
+            right: 8px;
+            background: rgba(0,0,0,0.65);
+            color: #fff;
+            font-size: 0.75rem;
+            padding: 2px 6px;
+            border-radius: 4px;
         }
 
         /* SECTION 3: Spiritual Leaders Layout */
@@ -278,6 +419,7 @@
             color: var(--primary-color, #d35400);
             font-size: 1.25rem;
             margin-bottom: 10px;
+            font-weight: 700;
         }
 
         .festival-content p {
@@ -323,6 +465,12 @@
             .leader-info-side {
                 padding: 20px;
             }
+            .shringar-card {
+                flex: 0 0 280px;
+            }
+            .track-slide-item {
+                flex: 0 0 160px;
+            }
         }
     </style>
 </head>
@@ -352,119 +500,131 @@
 
     <main class="container" style="padding-top: 50px; max-width: 1200px; margin: 0 auto; padding-left: 15px; padding-right: 15px;">
         
-        <!-- SECTION 1: TOP 10 SHRINGAR DARSHAN -->
+        <!-- SECTION 1: TOP 10 SHRINGAR DARSHAN (ROW SLIDER) -->
         <section class="gallery-section">
             <h2 class="highlighted-title">Top 10 Shringar Darshan</h2>
-            <p class="sub-heading-center">Experience the divine beauty of the Deities as they are beautifully decorated in ten distinct traditional attires (Beshas) throughout the calendar year.</p>
+            <p class="sub-heading-center">Experience the divine beauty of the Deities as they are beautifully decorated in ten distinct traditional attires (Beshas) throughout the calendar year. Swipe or scroll horizontally to see them all.</p>
             
-            <div class="shringar-grid">
-                <div class="shringar-card">
-                    <div class="shringar-img-box">
-                        <span class="shringar-badge">1 / 10</span>
-                        <img src="https://images.unsplash.com/photo-1621360841013-c7683c659ec6?auto=format&fit=crop&w=600&q=80" alt="Mangala Besha">
+            <div class="shringar-slider-container">
+                <div class="shringar-slider-row">
+                    <!-- 1. Mangala Besha -->
+                    <div class="shringar-card">
+                        <div class="shringar-img-box">
+                            <span class="shringar-badge">1 / 10</span>
+                            <img src="https://images.unsplash.com/photo-1621360841013-c7683c659ec6?auto=format&fit=crop&w=600&q=80" alt="Mangala Besha">
+                        </div>
+                        <div class="shringar-content">
+                            <h3><i class="fas fa-sun"></i> Mangala Besha</h3>
+                            <p>The pristine dawn awakening look. The Deities are elegantly wrapped in fine cotton fabrics, creating a serene and deeply moving atmosphere for early-morning pilgrims.</p>
+                        </div>
                     </div>
-                    <div class="shringar-content">
-                        <h3><i class="fas fa-sun"></i> Mangala Besha</h3>
-                        <p>The pristine dawn awakening look. The Deities are elegantly wrapped in fine cotton fabrics, creating a serene and deeply moving atmosphere for early-morning pilgrims.</p>
-                    </div>
-                </div>
 
-                <div class="shringar-card">
-                    <div class="shringar-img-box">
-                        <span class="shringar-badge">2 / 10</span>
-                        <img src="https://images.unsplash.com/photo-1601574901174-5fe39a2fb6a7?auto=format&fit=crop&w=600&q=80" alt="Abakasha Darshan">
+                    <!-- 2. Abakasha Darshan -->
+                    <div class="shringar-card">
+                        <div class="shringar-img-box">
+                            <span class="shringar-badge">2 / 10</span>
+                            <img src="https://images.unsplash.com/photo-1601574901174-5fe39a2fb6a7?auto=format&fit=crop&w=600&q=80" alt="Abakasha Darshan">
+                        </div>
+                        <div class="shringar-content">
+                            <h3><i class="fas fa-water"></i> Abakasha Darshan</h3>
+                            <p>The daily morning bathing attire. Tailored beautifully for the sacred tooth-brushing, holy water ablutions, and daily spiritual purification rituals.</p>
+                        </div>
                     </div>
-                    <div class="shringar-content">
-                        <h3><i class="fas fa-water"></i> Abakasha Darshan</h3>
-                        <p>The daily morning bathing attire. Tailored beautifully for the sacred tooth-brushing, holy water ablutions, and daily spiritual purification rituals.</p>
-                    </div>
-                </div>
 
-                <div class="shringar-card">
-                    <div class="shringar-img-box">
-                        <span class="shringar-badge">3 / 10</span>
-                        <img src="https://images.unsplash.com/photo-1609137144813-2d2ecb27a694?auto=format&fit=crop&w=600&q=80" alt="Bada Singhara Besha">
+                    <!-- 3. Bada Singhara Besha -->
+                    <div class="shringar-card">
+                        <div class="shringar-img-box">
+                            <span class="shringar-badge">3 / 10</span>
+                            <img src="https://images.unsplash.com/photo-1609137144813-2d2ecb27a694?auto=format&fit=crop&w=600&q=80" alt="Bada Singhara Besha">
+                        </div>
+                        <div class="shringar-content">
+                            <h3><i class="fas fa-moon"></i> Bada Singhara Besha</h3>
+                            <p>The magnificent night-time sleeping attire. Rich local blossoms, fresh jasmines, and handwoven silks containing sacred verses are arranged lovingly around the Deities.</p>
+                        </div>
                     </div>
-                    <div class="shringar-content">
-                        <h3><i class="fas fa-moon"></i> Bada Singhara Besha</h3>
-                        <p>The magnificent night-time sleeping attire. Rich local blossoms, fresh jasmines, and handwoven silks containing sacred verses are arranged lovingly around the Deities.</p>
-                    </div>
-                </div>
 
-                <div class="shringar-card">
-                    <div class="shringar-img-box">
-                        <span class="shringar-badge">4 / 10</span>
-                        <img src="https://images.unsplash.com/photo-1621360841013-c7683c659ec6?auto=format&fit=crop&w=600&q=80" alt="Suna Besha">
+                    <!-- 4. Suna Besha -->
+                    <div class="shringar-card">
+                        <div class="shringar-img-box">
+                            <span class="shringar-badge">4 / 10</span>
+                            <img src="https://images.unsplash.com/photo-1621360841013-c7683c659ec6?auto=format&fit=crop&w=600&q=80" alt="Suna Besha">
+                        </div>
+                        <div class="shringar-content">
+                            <h3><i class="fas fa-crown"></i> Suna Besha</h3>
+                            <p>A glorious, highly anticipated appearance where the Deities are fully adorned with heavy, sparkling golden ornaments on the grand chariots.</p>
+                        </div>
                     </div>
-                    <div class="shringar-content">
-                        <h3><i class="fas fa-crown"></i> Suna Besha (Golden Attire)</h3>
-                        <p>A glorious, highly anticipated appearance where the Deities are fully adorned with heavy, sparkling golden ornaments on the grand chariots.</p>
-                    </div>
-                </div>
 
-                <div class="shringar-card">
-                    <div class="shringar-img-box">
-                        <span class="shringar-badge">5 / 10</span>
-                        <img src="https://images.unsplash.com/photo-1601574901174-5fe39a2fb6a7?auto=format&fit=crop&w=600&q=80" alt="Gajanana Besha">
+                    <!-- 5. Hathi / Gajanana Besha -->
+                    <div class="shringar-card">
+                        <div class="shringar-img-box">
+                            <span class="shringar-badge">5 / 10</span>
+                            <img src="https://images.unsplash.com/photo-1601574901174-5fe39a2fb6a7?auto=format&fit=crop&w=600&q=80" alt="Gajanana Besha">
+                        </div>
+                        <div class="shringar-content">
+                            <h3><i class="fas fa-om"></i> Gajanana Besha</h3>
+                            <p>Celebrated during Snana Purnima. The Deities are beautifully dressed in an elegant elephant mask structure, delighting devotees of Lord Ganesha.</p>
+                        </div>
                     </div>
-                    <div class="shringar-content">
-                        <h3><i class="fas fa-om"></i> Gajanana / Hathi Besha</h3>
-                        <p>Celebrated during Snana Purnima. The Deities are beautifully dressed in an elegant elephant mask structure, delighting devotees of Lord Ganesha.</p>
-                    </div>
-                </div>
 
-                <div class="shringar-card">
-                    <div class="shringar-img-box">
-                        <span class="shringar-badge">6 / 10</span>
-                        <img src="https://images.unsplash.com/photo-1609137144813-2d2ecb27a694?auto=format&fit=crop&w=600&q=80" alt="Giri Govardhana Besha">
+                    <!-- 6. Giri Govardhana Besha -->
+                    <div class="shringar-card">
+                        <div class="shringar-img-box">
+                            <span class="shringar-badge">6 / 10</span>
+                            <img src="https://images.unsplash.com/photo-1609137144813-2d2ecb27a694?auto=format&fit=crop&w=600&q=80" alt="Giri Govardhana Besha">
+                        </div>
+                        <div class="shringar-content">
+                            <h3><i class="fas fa-mountain"></i> Govardhana Besha</h3>
+                            <p>A beautiful arrangement that tells the ancient story of Lord Krishna lifting the massive Govardhan Hill to keep his pure devotees safe.</p>
+                        </div>
                     </div>
-                    <div class="shringar-content">
-                        <h3><i class="fas fa-mountain"></i> Giri Govardhana Besha</h3>
-                        <p>A beautiful arrangement that tells the ancient story of Lord Krishna lifting the massive Govardhan Hill to keep his pure devotees safe.</p>
-                    </div>
-                </div>
 
-                <div class="shringar-card">
-                    <div class="shringar-img-box">
-                        <span class="shringar-badge">7 / 10</span>
-                        <img src="https://images.unsplash.com/photo-1621360841013-c7683c659ec6?auto=format&fit=crop&w=600&q=80" alt="Padma Besha">
+                    <!-- 7. Padma Besha -->
+                    <div class="shringar-card">
+                        <div class="shringar-img-box">
+                            <span class="shringar-badge">7 / 10</span>
+                            <img src="https://images.unsplash.com/photo-1621360841013-c7683c659ec6?auto=format&fit=crop&w=600&q=80" alt="Padma Besha">
+                        </div>
+                        <div class="shringar-content">
+                            <h3><i class="fas fa-spa"></i> Padma Besha</h3>
+                            <p>A brilliant, soothing dress arrangement decorated with beautiful lotus designs, symbolizing pure devotion and absolute spiritual cleanliness.</p>
+                        </div>
                     </div>
-                    <div class="shringar-content">
-                        <h3><i class="fas fa-spa"></i> Padma Besha</h3>
-                        <p>A brilliant, soothing dress arrangement decorated with beautiful lotus designs, symbolizing pure devotion and absolute spiritual cleanliness.</p>
-                    </div>
-                </div>
 
-                <div class="shringar-card">
-                    <div class="shringar-img-box">
-                        <span class="shringar-badge">8 / 10</span>
-                        <img src="https://images.unsplash.com/photo-1601574901174-5fe39a2fb6a7?auto=format&fit=crop&w=600&q=80" alt="Nabagrah Besha">
+                    <!-- 8. Nabagrah Besha -->
+                    <div class="shringar-card">
+                        <div class="shringar-img-box">
+                            <span class="shringar-badge">8 / 10</span>
+                            <img src="https://images.unsplash.com/photo-1601574901174-5fe39a2fb6a7?auto=format&fit=crop&w=600&q=80" alt="Nabagrah Besha">
+                        </div>
+                        <div class="shringar-content">
+                            <h3><i class="fas fa-star"></i> Nabagrah Besha</h3>
+                            <p>A highly symbolic alignment representing protection and cosmic shelter, assuring all visiting souls that the Supreme Lord guards their journeys.</p>
+                        </div>
                     </div>
-                    <div class="shringar-content">
-                        <h3><i class="fas fa-star"></i> Nabagrah Besha</h3>
-                        <p>A highly symbolic alignment representing protection and cosmic shelter, assuring all visiting souls that the Supreme Lord guards their journeys.</p>
-                    </div>
-                </div>
 
-                <div class="shringar-card">
-                    <div class="shringar-img-box">
-                        <span class="shringar-badge">9 / 10</span>
-                        <img src="https://images.unsplash.com/photo-1609137144813-2d2ecb27a694?auto=format&fit=crop&w=600&q=80" alt="Sadabhishekh Besha">
+                    <!-- 9. Sadabhishekh Besha -->
+                    <div class="shringar-card">
+                        <div class="shringar-img-box">
+                            <span class="shringar-badge">9 / 10</span>
+                            <img src="https://images.unsplash.com/photo-1609137144813-2d2ecb27a694?auto=format&fit=crop&w=600&q=80" alt="Sadabhishekh Besha">
+                        </div>
+                        <div class="shringar-content">
+                            <h3><i class="fas fa-gem"></i> Sadabhishekh</h3>
+                            <p>A magnificent royal look put together after large-scale festival cleanings, utilizing highly exquisite silks and selective classic ornaments.</p>
+                        </div>
                     </div>
-                    <div class="shringar-content">
-                        <h3><i class="fas fa-gem"></i> Sadabhishekh Besha</h3>
-                        <p>A magnificent royal look put together after large-scale festival cleanings, utilizing highly exquisite silks and selective classic ornaments.</p>
-                    </div>
-                </div>
 
-                <div class="shringar-card">
-                    <div class="shringar-img-box">
-                        <span class="shringar-badge">10 / 10</span>
-                        <img src="https://images.unsplash.com/photo-1621360841013-c7683c659ec6?auto=format&fit=crop&w=600&q=80" alt="Chandan Besha">
-                    </div>
-                    <div class="shringar-content">
-                        <h3><i class="fas fa-leaf"></i> Chandan Besha</h3>
-                        <p>An elegant, high-summer cooling relief arrangement. The Deities are gently coated with natural, hand-ground cooling sandalwood paste.</p>
+                    <!-- 10. Chandan Besha -->
+                    <div class="shringar-card">
+                        <div class="shringar-img-box">
+                            <span class="shringar-badge">10 / 10</span>
+                            <img src="https://images.unsplash.com/photo-1621360841013-c7683c659ec6?auto=format&fit=crop&w=600&q=80" alt="Chandan Besha">
+                        </div>
+                        <div class="shringar-content">
+                            <h3><i class="fas fa-leaf"></i> Chandan Besha</h3>
+                            <p>An elegant, high-summer cooling relief arrangement. The Deities are gently coated with natural, hand-ground cooling sandalwood paste.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -472,50 +632,76 @@
 
         <hr style="border: 0; height: 1px; background: var(--border-color, #eaeaea); margin: 50px 0;">
 
-        <!-- SECTION 2: YATRA ARCHIVE & CHRONOLOGY -->
+        <!-- SECTION 2: YATRA ARCHIVE & CHRONOLOGY WITH INTERACTIVE DETAILS -->
         <section class="gallery-section">
             <h2 class="highlighted-title">Annual Procession Tracks</h2>
-            <p class="sub-heading-center">A comprehensive chronological photo logs tracking the historic footprints, ecstatic gatherings, and modern updates of Bidar's street festivals.</p>
+            <p class="sub-heading-center">Click on any procession card below to load comprehensive descriptions alongside a slide-by-slide 10-photo album detailing historical footprints from Bidar's street festivals.</p>
             
             <div class="yatra-grid">
-                <div class="yatra-card">
+                <!-- Card 1: Shoba Yatra 2024 -->
+                <div class="yatra-card" onclick="openTrackDetails('shoba24', this)">
                     <div class="yatra-img">
                         <img src="https://images.unsplash.com/photo-1601574901174-5fe39a2fb6a7?auto=format&fit=crop&w=500&q=80" alt="Shoba Yatra 2024">
                     </div>
                     <div class="yatra-details">
                         <h3>Shoba Yatra 2024</h3>
                         <p>Community Procession</p>
+                        <div class="click-hint"><i class="fas fa-expand-arrows-alt"></i> Click to view 10 Photos</div>
                     </div>
                 </div>
 
-                <div class="yatra-card">
+                <!-- Card 2: Ratha Yatra 2024 -->
+                <div class="yatra-card" onclick="openTrackDetails('ratha24', this)">
                     <div class="yatra-img">
                         <img src="https://images.unsplash.com/photo-1621360841013-c7683c659ec6?auto=format&fit=crop&w=500&q=80" alt="Ratha Yatra 2024">
                     </div>
                     <div class="yatra-details">
                         <h3>Ratha Yatra 2024</h3>
                         <p>Chariot Festival</p>
+                        <div class="click-hint"><i class="fas fa-expand-arrows-alt"></i> Click to view 10 Photos</div>
                     </div>
                 </div>
 
-                <div class="yatra-card">
+                <!-- Card 3: Ratha Yatra 2025 -->
+                <div class="yatra-card" onclick="openTrackDetails('ratha25', this)">
                     <div class="yatra-img">
                         <img src="https://images.unsplash.com/photo-1609137144813-2d2ecb27a694?auto=format&fit=crop&w=500&q=80" alt="Ratha Yatra 2025">
                     </div>
                     <div class="yatra-details">
                         <h3>Ratha Yatra 2025</h3>
                         <p>Chariot Festival</p>
+                        <div class="click-hint"><i class="fas fa-expand-arrows-alt"></i> Click to view 10 Photos</div>
                     </div>
                 </div>
 
-                <div class="yatra-card">
+                <!-- Card 4: Ratha Yatra 2026 -->
+                <div class="yatra-card" onclick="openTrackDetails('ratha26', this)">
                     <div class="yatra-img">
                         <img src="https://images.unsplash.com/photo-1601574901174-5fe39a2fb6a7?auto=format&fit=crop&w=500&q=80" alt="Ratha Yatra 2026">
                     </div>
                     <div class="yatra-details">
                         <h3>Ratha Yatra 2026</h3>
-                        <p>Current Year Highlights</p>
+                        <p>Current Highlights</p>
+                        <div class="click-hint"><i class="fas fa-expand-arrows-alt"></i> Click to view 10 Photos</div>
                     </div>
+                </div>
+            </div>
+
+            <!-- DYNAMIC VIEWER PANEL CONTAINER -->
+            <div id="dynamicTrackViewer" class="track-viewer-panel">
+                <div class="track-viewer-header">
+                    <h3 id="viewerTitle">Procession Name</h3>
+                    <span id="viewerTag" class="track-tag">Yatra Type</span>
+                </div>
+                <p id="viewerDesc" class="track-viewer-desc">Detailed descriptions of the track historic event will load here automatically...</p>
+                
+                <div class="track-photo-heading">
+                    <i class="fas fa-images" style="color: var(--primary-color);"></i> Gallery Album (Horizontal Slider — 10 Photos)
+                </div>
+                
+                <!-- Single Row Horizontal 10-Image Row Container -->
+                <div id="viewerPhotoRow" class="track-photo-row">
+                    <!-- Photo slide cards will be dynamically injected here via Javascript -->
                 </div>
             </div>
         </section>
@@ -811,6 +997,119 @@
             <p>&copy; 2026 Sri Jagannatha Temple. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- INTERACTIVE YATRA TRACK DATA DISPLAYER SCRIPT -->
+    <script>
+        // Central Database containing Details & 10 unique Photo links for each specific track item
+        const trackDatabase = {
+            shoba24: {
+                title: "Shoba Yatra 2024",
+                tag: "Community Procession",
+                desc: "The Shoba Yatra of 2024 marked a beautiful chapter of unity across Bidar. Carrying gorgeous setups and accompanied by traditional drums, over thousands of local devotees marched singing street kirtans, starting from the central bypass all the way to our temple doors.",
+                photos: [
+                    "https://images.unsplash.com/photo-1601574901174-5fe39a2fb6a7?auto=format&fit=crop&w=400&q=80",
+                    "https://images.unsplash.com/photo-1621360841013-c7683c659ec6?auto=format&fit=crop&w=400&q=80",
+                    "https://images.unsplash.com/photo-1609137144813-2d2ecb27a694?auto=format&fit=crop&w=400&q=80",
+                    "https://images.unsplash.com/photo-1601574901174-5fe39a2fb6a7?auto=format&fit=crop&w=400&q=80",
+                    "https://images.unsplash.com/photo-1621360841013-c7683c659ec6?auto=format&fit=crop&w=400&q=80",
+                    "https://images.unsplash.com/photo-1609137144813-2d2ecb27a694?auto=format&fit=crop&w=400&q=80",
+                    "https://images.unsplash.com/photo-1601574901174-5fe39a2fb6a7?auto=format&fit=crop&w=400&q=80",
+                    "https://images.unsplash.com/photo-1621360841013-c7683c659ec6?auto=format&fit=crop&w=400&q=80",
+                    "https://images.unsplash.com/photo-1609137144813-2d2ecb27a694?auto=format&fit=crop&w=400&q=80",
+                    "https://images.unsplash.com/photo-1601574901174-5fe39a2fb6a7?auto=format&fit=crop&w=400&q=80"
+                ]
+            },
+            ratha24: {
+                title: "Ratha Yatra 2024",
+                tag: "Chariot Festival",
+                desc: "The historic 2024 Chariot Festival drew unprecedented gathering lines. Lord Jagannath, Baladeva, and Subhadra Devi rode their grand wooden chariot structures, accepting offerings and broken coconuts from families camped along the main roads.",
+                photos: [
+                    "https://images.unsplash.com/photo-1621360841013-c7683c659ec6?auto=format&fit=crop&w=400&q=80",
+                    "https://images.unsplash.com/photo-1609137144813-2d2ecb27a694?auto=format&fit=crop&w=400&q=80",
+                    "https://images.unsplash.com/photo-1601574901174-5fe39a2fb6a7?auto=format&fit=crop&w=400&q=80",
+                    "https://images.unsplash.com/photo-1621360841013-c7683c659ec6?auto=format&fit=crop&w=400&q=80",
+                    "https://images.unsplash.com/photo-1609137144813-2d2ecb27a694?auto=format&fit=crop&w=400&q=80",
+                    "https://images.unsplash.com/photo-1601574901174-5fe39a2fb6a7?auto=format&fit=crop&w=400&q=80",
+                    "https://images.unsplash.com/photo-1621360841013-c7683c659ec6?auto=format&fit=crop&w=400&q=80",
+                    "https://images.unsplash.com/photo-1609137144813-2d2ecb27a694?auto=format&fit=crop&w=400&q=80",
+                    "https://images.unsplash.com/photo-1601574901174-5fe39a2fb6a7?auto=format&fit=crop&w=400&q=80",
+                    "https://images.unsplash.com/photo-1621360841013-c7683c659ec6?auto=format&fit=crop&w=400&q=80"
+                ]
+            },
+            ratha25: {
+                title: "Ratha Yatra 2025",
+                tag: "Chariot Festival",
+                desc: "An incredibly vivid festive chronicle. The 2025 Ratha Yatra integrated advanced crowd arrangements and featured an exquisite flower deck canopy setup protecting the Lord's platform, bringing massive bliss to regional visitors.",
+                photos: [
+                    "https://images.unsplash.com/photo-1609137144813-2d2ecb27a694?auto=format&fit=crop&w=400&q=80",
+                    "https://images.unsplash.com/photo-1601574901174-5fe39a2fb6a7?auto=format&fit=crop&w=400&q=80",
+                    "https://images.unsplash.com/photo-1621360841013-c7683c659ec6?auto=format&fit=crop&w=400&q=80",
+                    "https://images.unsplash.com/photo-1609137144813-2d2ecb27a694?auto=format&fit=crop&w=400&q=80",
+                    "https://images.unsplash.com/photo-1601574901174-5fe39a2fb6a7?auto=format&fit=crop&w=400&q=40",
+                    "https://images.unsplash.com/photo-1621360841013-c7683c659ec6?auto=format&fit=crop&w=400&q=80",
+                    "https://images.unsplash.com/photo-1609137144813-2d2ecb27a694?auto=format&fit=crop&w=400&q=80",
+                    "https://images.unsplash.com/photo-1601574901174-5fe39a2fb6a7?auto=format&fit=crop&w=400&q=80",
+                    "https://images.unsplash.com/photo-1621360841013-c7683c659ec6?auto=format&fit=crop&w=400&q=80",
+                    "https://images.unsplash.com/photo-1609137144813-2d2ecb27a694?auto=format&fit=crop&w=400&q=80"
+                ]
+            },
+            ratha26: {
+                title: "Ratha Yatra 2026",
+                tag: "Current Year Highlights",
+                desc: "Our most recent celebration tracking live milestones from this year! Witness the high-energy devotional standard, massive distribution of sanctified Mahaprasad plates, and beautiful community teamwork that made this year spectacular.",
+                photos: [
+                    "https://images.unsplash.com/photo-1601574901174-5fe39a2fb6a7?auto=format&fit=crop&w=400&q=80",
+                    "https://images.unsplash.com/photo-1621360841013-c7683c659ec6?auto=format&fit=crop&w=400&q=80",
+                    "https://images.unsplash.com/photo-1609137144813-2d2ecb27a694?auto=format&fit=crop&w=400&q=80",
+                    "https://images.unsplash.com/photo-1601574901174-5fe39a2fb6a7?auto=format&fit=crop&w=400&q=80",
+                    "https://images.unsplash.com/photo-1621360841013-c7683c659ec6?auto=format&fit=crop&w=400&q=80",
+                    "https://images.unsplash.com/photo-1609137144813-2d2ecb27a694?auto=format&fit=crop&w=400&q=80",
+                    "https://images.unsplash.com/photo-1601574901174-5fe39a2fb6a7?auto=format&fit=crop&w=400&q=80",
+                    "https://images.unsplash.com/photo-1621360841013-c7683c659ec6?auto=format&fit=crop&w=400&q=80",
+                    "https://images.unsplash.com/photo-1609137144813-2d2ecb27a694?auto=format&fit=crop&w=400&q=80",
+                    "https://images.unsplash.com/photo-1601574901174-5fe39a2fb6a7?auto=format&fit=crop&w=400&q=80"
+                ]
+            }
+        };
+
+        function openTrackDetails(trackKey, element) {
+            // 1. Remove active highlights from all yatra cards
+            const cards = document.querySelectorAll('.yatra-card');
+            cards.forEach(c => c.classList.remove('active-card'));
+            
+            // 2. Add visual focus to the clicked card
+            element.classList.add('active-card');
+            
+            // 3. Extract the requested track dataset
+            const trackData = trackDatabase[trackKey];
+            if(!trackData) return;
+            
+            // 4. Bind information to the dynamic viewer fields
+            document.getElementById('viewerTitle').innerText = trackData.title;
+            document.getElementById('viewerTag').innerText = trackData.tag;
+            document.getElementById('viewerDesc').innerText = trackData.desc;
+            
+            // 5. Generate and inject the 10 horizontal slider photos smoothly
+            const photoRow = document.getElementById('viewerPhotoRow');
+            photoRow.innerHTML = ""; // Clear out previous images safely
+            
+            trackData.photos.forEach((photoUrl, index) => {
+                const slideItem = document.createElement('div');
+                slideItem.className = 'track-slide-item';
+                slideItem.innerHTML = `
+                    <img src="${photoUrl}" alt="${trackData.title} view ${index + 1}">
+                    <span class="photo-counter-tag">${index + 1} / 10</span>
+                `;
+                photoRow.appendChild(slideItem);
+            });
+            
+            // 6. Reveal the panel visually and scroll smoothly into view
+            const viewerPanel = document.getElementById('dynamicTrackViewer');
+            viewerPanel.style.display = 'block';
+            
+            viewerPanel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+    </script>
 
 </body>
 </html>
