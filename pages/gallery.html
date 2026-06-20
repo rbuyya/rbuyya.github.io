@@ -8,186 +8,288 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* Specific page adjustments for Gallery Photo Grid & Information sections */
         .gallery-section {
-            margin-bottom: 50px;
+            margin-bottom: 60px;
         }
         
         .sub-heading-center {
             text-align: center;
-            margin-bottom: 30px;
-            color: var(--text-dark);
-            font-size: 1.2rem;
+            margin-bottom: 45px;
+            color: var(--text-dark, #333);
+            font-size: 1.15rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
         }
 
-        /* Subtle Section Header Highlights for Titles 1, 2, and 3 */
         .gallery-section h2.highlighted-title {
             display: table;
             margin: 0 auto 15px auto;
-            padding-bottom: 5px;
-            border-bottom: 3px solid var(--accent-color);
-            color: var(--secondary-color);
+            padding-bottom: 8px;
+            border-bottom: 4px solid var(--accent-color, #f39c12);
+            color: var(--secondary-color, #2c3e50);
             font-weight: 800;
+            font-size: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        .gallery-section h2.highlighted-title::after {
-            display: none; /* Disables standard style.css global line overlay */
-        }
-
-        /* Interactive Photo Filters */
-        .gallery-filter {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 40px;
-            flex-wrap: wrap;
-        }
-
-        .filter-btn {
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-color);
-            color: var(--text-dark);
-            padding: 8px 20px;
-            border-radius: 20px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .filter-btn.active, .filter-btn:hover {
-            background-color: var(--primary-color);
-            color: var(--text-light);
-            border-color: var(--primary-color);
-        }
-
-        /* Base Photo Grid Layout */
-        .gallery-grid {
+        /* SECTION 1: Top 10 Shringar Darshan Layout */
+        .shringar-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
             gap: 25px;
-            margin-bottom: 60px;
         }
-
-        .gallery-item {
-            background-color: var(--bg-card);
-            border-radius: 8px;
+        
+        .shringar-card {
+            background: var(--bg-card, #fff);
+            border: 1px solid var(--border-color, #eaeaea);
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: var(--shadow);
-            border: 1px solid var(--border-color);
-            transition: var(--transition);
+            box-shadow: var(--shadow, 0 4px 15px rgba(0,0,0,0.05));
+            transition: var(--transition, all 0.3s ease);
         }
 
-        .gallery-item:hover {
+        .shringar-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
         }
 
-        .img-container {
+        .shringar-img-box {
             position: relative;
+            aspect-ratio: 16 / 10;
+            background-color: #f5f5f5;
             overflow: hidden;
-            aspect-ratio: 4 / 3;
-            background-color: #eee;
         }
 
-        .img-container img {
+        .shringar-img-box img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.5s ease;
         }
 
-        .gallery-item:hover .img-container img {
-            transform: scale(1.08);
+        .shringar-card:hover .shringar-img-box img {
+            transform: scale(1.06);
         }
 
-        .gallery-info {
+        .shringar-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: var(--primary-color, #d35400);
+            color: #fff;
+            padding: 4px 12px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            border-radius: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            z-index: 2;
+        }
+
+        .shringar-content {
+            padding: 20px;
+        }
+
+        .shringar-content h3 {
+            color: var(--secondary-color, #2c3e50);
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .shringar-content p {
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.5;
+        }
+
+        /* SECTION 2: Yatra Timeline Grid */
+        .yatra-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 25px;
+        }
+
+        .yatra-card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow, 0 4px 15px rgba(0,0,0,0.05));
+            border: 1px solid var(--border-color, #eaeaea);
+            transition: transform 0.3s ease;
+        }
+
+        .yatra-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .yatra-img {
+            aspect-ratio: 4 / 3;
+            background-color: #eee;
+            overflow: hidden;
+        }
+
+        .yatra-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .yatra-details {
             padding: 15px 20px;
+            text-align: center;
         }
 
-        .gallery-info h4 {
-            color: var(--secondary-color);
-            font-size: 1.1rem;
+        .yatra-details h3 {
+            color: var(--secondary-color, #2c3e50);
+            font-size: 1.2rem;
             margin-bottom: 5px;
         }
 
-        .gallery-info p {
+        .yatra-details p {
             font-size: 0.85rem;
-            color: #666;
+            color: var(--primary-color, #d35400);
+            font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
 
-        /* Shringar Darshan Grid Layout */
-        .shringar-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
-        }
-        
-        .shringar-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 25px;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
+        /* SECTION 3: Spiritual Leaders Layout */
+        .leaders-container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin-top: 20px;
         }
 
-        .shringar-card h4 {
-            color: var(--primary-color);
-            font-size: 1.25rem;
-            margin-bottom: 10px;
+        .leader-row {
+            display: flex;
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-color, #eaeaea);
+            box-shadow: var(--shadow, 0 4px 15px rgba(0,0,0,0.05));
+            align-items: stretch;
+        }
+
+        .leader-pic-side {
+            width: 250px;
+            min-width: 250px;
+            background-color: #fcf6ee;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .leader-pic-side img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .leader-info-side {
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            flex-grow: 1;
+        }
+
+        .leader-info-side h3 {
+            color: var(--primary-color, #d35400);
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+
+        .leader-role {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--secondary-color, #2c3e50);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .leader-info-side p {
+            color: #555;
+            line-height: 1.6;
+            font-size: 1rem;
+            margin: 0;
+        }
+
+        /* SECTION 4: Top 10 Annual Festivals Layout */
+        .festivals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
+        }
+
+        .festival-card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-color, #eaeaea);
+            box-shadow: var(--shadow, 0 4px 15px rgba(0,0,0,0.05));
+            display: flex;
+            flex-direction: column;
+        }
+
+        .festival-img-box {
+            position: relative;
+            aspect-ratio: 16 / 10;
+            background-color: #f9f9f9;
+            overflow: hidden;
+        }
+
+        .festival-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .festival-num-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--secondary-color, #2c3e50);
+            color: #fff;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
             display: flex;
             align-items: center;
-            gap: 10px;
-        }
-
-        /* Spiritual Leaders Section Styling */
-        .leaders-layout {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-        }
-
-        .leader-box {
-            background-color: #fff;
-            border-left: 5px solid var(--accent-color);
-            padding: 20px;
-            border-radius: 4px;
-            box-shadow: var(--shadow);
-        }
-
-        .leader-box h3 {
-            color: var(--secondary-color);
-            margin-bottom: 8px;
-        }
-
-        /* Video Interactive Table Design */
-        .events-table-wrapper {
-            overflow-x: auto;
-            background: #fff;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: var(--shadow);
-            border: 1px solid var(--border-color);
-        }
-
-        .custom-table {
-            width: 100%;
-            border-collapse: collapse;
-            text-align: left;
-        }
-
-        .custom-table th, .custom-table td {
-            padding: 15px;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .custom-table th {
-            background-color: #fcf6ee;
-            color: var(--secondary-color);
+            justify-content: center;
             font-weight: 700;
+            font-size: 0.85rem;
+        }
+
+        .festival-content {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .festival-content h3 {
+            color: var(--primary-color, #d35400);
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+        }
+
+        .festival-content p {
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.5;
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+
+        .festival-action {
+            margin-top: auto;
         }
 
         .youtube-btn {
@@ -196,71 +298,31 @@
             gap: 8px;
             background-color: #ff0000;
             color: #fff !important;
-            padding: 6px 14px;
-            border-radius: 4px;
+            padding: 8px 16px;
+            border-radius: 6px;
             font-size: 0.85rem;
             font-weight: 600;
+            text-decoration: none;
+            transition: background-color 0.2s ease;
+            width: 100%;
+            justify-content: center;
         }
 
         .youtube-btn:hover {
             background-color: #cc0000;
-            transform: scale(1.03);
         }
 
-        /* Ratha Yatra Milestone Tracking Layout */
-        .ratha-milestones {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .milestone-card {
-            background-color: #fff;
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 30px;
-            position: relative;
-            box-shadow: var(--shadow);
-        }
-
-        .milestone-badge {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            background: var(--primary-color);
-            color: #fff;
-            padding: 3px 12px;
-            border-radius: 12px;
-            font-size: 0.8rem;
-            font-weight: 700;
-        }
-
-        .milestone-card h3 {
-            color: var(--secondary-color);
-            margin-bottom: 15px;
-            font-size: 1.4rem;
-        }
-
-        .milestone-card ul {
-            margin-top: 15px;
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .milestone-card ul li {
-            margin-bottom: 8px;
-            position: relative;
-            padding-left: 20px;
-        }
-
-        .milestone-card ul li::before {
-            content: "•";
-            color: var(--accent-color);
-            font-weight: bold;
-            font-size: 1.2rem;
-            position: absolute;
-            left: 0;
-            top: -2px;
+        @media (max-width: 768px) {
+            .leader-row {
+                flex-direction: column;
+            }
+            .leader-pic-side {
+                width: 100%;
+                height: 250px;
+            }
+            .leader-info-side {
+                padding: 20px;
+            }
         }
     </style>
 </head>
@@ -288,201 +350,419 @@
         </div>
     </section>
 
-    <main class="container" style="padding-top: 50px;">
+    <main class="container" style="padding-top: 50px; max-width: 1200px; margin: 0 auto; padding-left: 15px; padding-right: 15px;">
         
+        <!-- SECTION 1: TOP 10 SHRINGAR DARSHAN -->
         <section class="gallery-section">
-            <div class="gallery-filter">
-                <button class="filter-btn active">All Images</button>
-                <button class="filter-btn">Darshan</button>
-                <button class="filter-btn">Festivals</button>
-                <button class="filter-btn">Architecture</button>
-            </div>
-
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <div class="img-container">
-                        <img src="https://images.unsplash.com/photo-1621360841013-c7683c659ec6?auto=format&fit=crop&w=600&q=80" alt="Lord Jagannath Mahaprabhu">
-                    </div>
-                    <div class="gallery-info">
-                        <h4>Shri Jagannath Mahaprabhu</h4>
-                        <p>Darshan</p>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <div class="img-container">
-                        <img src="https://images.unsplash.com/photo-1601574901174-5fe39a2fb6a7?auto=format&fit=crop&w=600&q=80" alt="Ratha Yatra Procession">
-                    </div>
-                    <div class="gallery-info">
-                        <h4>Annual Ratha Yatra Chariot</h4>
-                        <p>Festivals</p>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <div class="img-container">
-                        <img src="https://images.unsplash.com/photo-1609137144813-2d2ecb27a694?auto=format&fit=crop&w=600&q=80" alt="Temple Shikhara">
-                    </div>
-                    <div class="gallery-info">
-                        <h4>Temple Shikhara Architecture</h4>
-                        <p>Architecture</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <hr style="border: 0; height: 1px; background: var(--border-color); margin: 40px 0;">
-
-        <section class="gallery-section">
-            <h2 class="highlighted-title">1. Types of Shringar Darshan</h2>
-            <p class="sub-heading-center">The visual logs of the deep transcendental transformations and ceremonial decorations of the Deities.</p>
+            <h2 class="highlighted-title">Top 10 Shringar Darshan</h2>
+            <p class="sub-heading-center">Experience the divine beauty of the Deities as they are beautifully decorated in ten distinct traditional attires (Beshas) throughout the calendar year.</p>
             
             <div class="shringar-grid">
                 <div class="shringar-card">
-                    <h4><i class="fas fa-sun"></i> Mangala Besha</h4>
-                    <p>The early dawn awakening attire. The Deities are dressed gently in soft, immaculate cotton cloths called <em>Khandua</em> fabrics, bringing peace to early morning pilgrims.</p>
+                    <div class="shringar-img-box">
+                        <span class="shringar-badge">1 / 10</span>
+                        <img src="https://images.unsplash.com/photo-1621360841013-c7683c659ec6?auto=format&fit=crop&w=600&q=80" alt="Mangala Besha">
+                    </div>
+                    <div class="shringar-content">
+                        <h3><i class="fas fa-sun"></i> Mangala Besha</h3>
+                        <p>The pristine dawn awakening look. The Deities are elegantly wrapped in fine cotton fabrics, creating a serene and deeply moving atmosphere for early-morning pilgrims.</p>
+                    </div>
                 </div>
+
                 <div class="shringar-card">
-                    <h4><i class="fas fa-water"></i> Abakasha Darshan</h4>
-                    <p>The morning bathing dress arrangement. Tailored specifically for the regular sacred tooth-brushing, water ablation, and pure cleansing rituals of the Lord.</p>
+                    <div class="shringar-img-box">
+                        <span class="shringar-badge">2 / 10</span>
+                        <img src="https://images.unsplash.com/photo-1601574901174-5fe39a2fb6a7?auto=format&fit=crop&w=600&q=80" alt="Abakasha Darshan">
+                    </div>
+                    <div class="shringar-content">
+                        <h3><i class="fas fa-water"></i> Abakasha Darshan</h3>
+                        <p>The daily morning bathing attire. Tailored beautifully for the sacred tooth-brushing, holy water ablutions, and daily spiritual purification rituals.</p>
+                    </div>
                 </div>
+
                 <div class="shringar-card">
-                    <h4><i class="fas fa-spa"></i> Bada Singhara Besha</h4>
-                    <p>The highly artistic evening sleeping attire. The Deities are beautifully garlanded in rich local blossoms, fragrant jasmines, and special handwoven silks inscribed with sacred verses.</p>
+                    <div class="shringar-img-box">
+                        <span class="shringar-badge">3 / 10</span>
+                        <img src="https://images.unsplash.com/photo-1609137144813-2d2ecb27a694?auto=format&fit=crop&w=600&q=80" alt="Bada Singhara Besha">
+                    </div>
+                    <div class="shringar-content">
+                        <h3><i class="fas fa-moon"></i> Bada Singhara Besha</h3>
+                        <p>The magnificent night-time sleeping attire. Rich local blossoms, fresh jasmines, and handwoven silks containing sacred verses are arranged lovingly around the Deities.</p>
+                    </div>
                 </div>
+
                 <div class="shringar-card">
-                    <h4><i class="fas fa-crown"></i> Suna Besha (Regal Gold)</h4>
-                    <p>A mesmerizing occasional appearance where Lord Jagannath, Balabhadra, and Subhadra Devi are dressed completely in beautiful, heavy solid gold ornaments on special high-festive dates.</p>
+                    <div class="shringar-img-box">
+                        <span class="shringar-badge">4 / 10</span>
+                        <img src="https://images.unsplash.com/photo-1621360841013-c7683c659ec6?auto=format&fit=crop&w=600&q=80" alt="Suna Besha">
+                    </div>
+                    <div class="shringar-content">
+                        <h3><i class="fas fa-crown"></i> Suna Besha (Golden Attire)</h3>
+                        <p>A glorious, highly anticipated appearance where the Deities are fully adorned with heavy, sparkling golden ornaments on the grand chariots.</p>
+                    </div>
                 </div>
+
                 <div class="shringar-card">
-                    <h4><i class="fas fa-om"></i> Gajanana / Hathi Besha</h4>
-                    <p>Celebrated beautifully on the afternoon of Snana Purnima. The holy deities are intricately adorned with elephant masks and attire, echoing the beloved appearance of Lord Ganesha.</p>
+                    <div class="shringar-img-box">
+                        <span class="shringar-badge">5 / 10</span>
+                        <img src="https://images.unsplash.com/photo-1601574901174-5fe39a2fb6a7?auto=format&fit=crop&w=600&q=80" alt="Gajanana Besha">
+                    </div>
+                    <div class="shringar-content">
+                        <h3><i class="fas fa-om"></i> Gajanana / Hathi Besha</h3>
+                        <p>Celebrated during Snana Purnima. The Deities are beautifully dressed in an elegant elephant mask structure, delighting devotees of Lord Ganesha.</p>
+                    </div>
                 </div>
+
                 <div class="shringar-card">
-                    <h4><i class="fas fa-mountain"></i> Giri Govardhana Besha</h4>
-                    <p>A beautiful seasonal special arrangement depicting the transcendental pastimes of Lord Krishna lifting the massive Govardhan Hill to protect the resident devotees.</p>
+                    <div class="shringar-img-box">
+                        <span class="shringar-badge">6 / 10</span>
+                        <img src="https://images.unsplash.com/photo-1609137144813-2d2ecb27a694?auto=format&fit=crop&w=600&q=80" alt="Giri Govardhana Besha">
+                    </div>
+                    <div class="shringar-content">
+                        <h3><i class="fas fa-mountain"></i> Giri Govardhana Besha</h3>
+                        <p>A beautiful arrangement that tells the ancient story of Lord Krishna lifting the massive Govardhan Hill to keep his pure devotees safe.</p>
+                    </div>
+                </div>
+
+                <div class="shringar-card">
+                    <div class="shringar-img-box">
+                        <span class="shringar-badge">7 / 10</span>
+                        <img src="https://images.unsplash.com/photo-1621360841013-c7683c659ec6?auto=format&fit=crop&w=600&q=80" alt="Padma Besha">
+                    </div>
+                    <div class="shringar-content">
+                        <h3><i class="fas fa-spa"></i> Padma Besha</h3>
+                        <p>A brilliant, soothing dress arrangement decorated with beautiful lotus designs, symbolizing pure devotion and absolute spiritual cleanliness.</p>
+                    </div>
+                </div>
+
+                <div class="shringar-card">
+                    <div class="shringar-img-box">
+                        <span class="shringar-badge">8 / 10</span>
+                        <img src="https://images.unsplash.com/photo-1601574901174-5fe39a2fb6a7?auto=format&fit=crop&w=600&q=80" alt="Nabagrah Besha">
+                    </div>
+                    <div class="shringar-content">
+                        <h3><i class="fas fa-star"></i> Nabagrah Besha</h3>
+                        <p>A highly symbolic alignment representing protection and cosmic shelter, assuring all visiting souls that the Supreme Lord guards their journeys.</p>
+                    </div>
+                </div>
+
+                <div class="shringar-card">
+                    <div class="shringar-img-box">
+                        <span class="shringar-badge">9 / 10</span>
+                        <img src="https://images.unsplash.com/photo-1609137144813-2d2ecb27a694?auto=format&fit=crop&w=600&q=80" alt="Sadabhishekh Besha">
+                    </div>
+                    <div class="shringar-content">
+                        <h3><i class="fas fa-gem"></i> Sadabhishekh Besha</h3>
+                        <p>A magnificent royal look put together after large-scale festival cleanings, utilizing highly exquisite silks and selective classic ornaments.</p>
+                    </div>
+                </div>
+
+                <div class="shringar-card">
+                    <div class="shringar-img-box">
+                        <span class="shringar-badge">10 / 10</span>
+                        <img src="https://images.unsplash.com/photo-1621360841013-c7683c659ec6?auto=format&fit=crop&w=600&q=80" alt="Chandan Besha">
+                    </div>
+                    <div class="shringar-content">
+                        <h3><i class="fas fa-leaf"></i> Chandan Besha</h3>
+                        <p>An elegant, high-summer cooling relief arrangement. The Deities are gently coated with natural, hand-ground cooling sandalwood paste.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <hr style="border: 0; height: 1px; background: var(--border-color); margin: 40px 0;">
+        <hr style="border: 0; height: 1px; background: var(--border-color, #eaeaea); margin: 50px 0;">
 
+        <!-- SECTION 2: YATRA ARCHIVE & CHRONOLOGY -->
         <section class="gallery-section">
-            <h2 class="highlighted-title">2. Eminent Spiritual Leaders</h2>
-            <p class="sub-heading-center">Visual logs and guest records of globally revered teachers who have visited our Bidar temple premises.</p>
+            <h2 class="highlighted-title">Annual Procession Tracks</h2>
+            <p class="sub-heading-center">A comprehensive chronological photo logs tracking the historic footprints, ecstatic gatherings, and modern updates of Bidar's street festivals.</p>
             
-            <div class="leaders-layout">
-                <div class="leader-box">
-                    <h3>HG Amogh Leela Prabhu</h3>
-                    <p>Renowned motivational speaker, lifestyle counselor, and senior monk who consistently illuminates deep Vedic scriptural context using delightful real-world humor and easy logic.</p>
+            <div class="yatra-grid">
+                <div class="yatra-card">
+                    <div class="yatra-img">
+                        <img src="https://images.unsplash.com/photo-1601574901174-5fe39a2fb6a7?auto=format&fit=crop&w=500&q=80" alt="Shoba Yatra 2024">
+                    </div>
+                    <div class="yatra-details">
+                        <h3>Shoba Yatra 2024</h3>
+                        <p>Community Procession</p>
+                    </div>
                 </div>
-                <div class="leader-box">
-                    <h3>HG Radhika Krpa Devi Dasi</h3>
-                    <p>Greatly loved speaker and kirtan singer who fills the hearts of local audiences with sweet, deeply emotional discourses on pure Bhakti philosophy and community devotion.</p>
+
+                <div class="yatra-card">
+                    <div class="yatra-img">
+                        <img src="https://images.unsplash.com/photo-1621360841013-c7683c659ec6?auto=format&fit=crop&w=500&q=80" alt="Ratha Yatra 2024">
+                    </div>
+                    <div class="yatra-details">
+                        <h3>Ratha Yatra 2024</h3>
+                        <p>Chariot Festival</p>
+                    </div>
                 </div>
-                <div class="leader-box" style="border-left-style: dashed; opacity: 0.75;">
-                    <h3>Upcoming Visiting Acharyas</h3>
-                    <p>Our Trust continually invites acclaimed national saints, bhajan musicians, and public thinkers. Check back here regularly for upcoming calendar schedules!</p>
+
+                <div class="yatra-card">
+                    <div class="yatra-img">
+                        <img src="https://images.unsplash.com/photo-1609137144813-2d2ecb27a694?auto=format&fit=crop&w=500&q=80" alt="Ratha Yatra 2025">
+                    </div>
+                    <div class="yatra-details">
+                        <h3>Ratha Yatra 2025</h3>
+                        <p>Chariot Festival</p>
+                    </div>
+                </div>
+
+                <div class="yatra-card">
+                    <div class="yatra-img">
+                        <img src="https://images.unsplash.com/photo-1601574901174-5fe39a2fb6a7?auto=format&fit=crop&w=500&q=80" alt="Ratha Yatra 2026">
+                    </div>
+                    <div class="yatra-details">
+                        <h3>Ratha Yatra 2026</h3>
+                        <p>Current Year Highlights</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <hr style="border: 0; height: 1px; background: var(--border-color); margin: 40px 0;">
+        <hr style="border: 0; height: 1px; background: var(--border-color, #eaeaea); margin: 50px 0;">
 
+        <!-- SECTION 3: SPIRITUAL LEADERS VISITED -->
         <section class="gallery-section">
-            <h2 class="highlighted-title">3. Top 10 Annual Temple Events</h2>
-            <p class="sub-heading-center">Participate in our vibrant year-round festivals. Click any live video track button below to catch past highlight visual recordings!</p>
+            <h2 class="highlighted-title">Spiritual Leaders</h2>
+            <p class="sub-heading-center">Honoring the revered spiritual guides, teachers, and acharyas who have graced our temple premises in Bidar with their holy footprints and transcendental discourses.</p>
             
-            <div class="events-table-wrapper">
-                <table class="custom-table">
-                    <thead>
-                        <tr>
-                            <th style="width: 25%;">Festival / Event Name</th>
-                            <th style="width: 55%;">Significance & Temple Celebrations</th>
-                            <th style="width: 20%;">Watch Video</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>1. Sri Jagannath Ratha Yatra</strong></td>
-                            <td>The majestic chariot festival bringing the Lord outside the sanctum sanctorum to meet and bless all people.</td>
-                            <td><a href="https://www.youtube.com" target="_blank" class="youtube-btn"><i class="fab fa-youtube"></i> Watch Live</a></td>
-                        </tr>
-                        <tr>
-                            <td><strong>2. Snana Yatra Celebration</strong></td>
-                            <td>A joyful open bathing festival where the Deities are bathed with 108 fragrant water pots.</td>
-                            <td><a href="https://www.youtube.com" target="_blank" class="youtube-btn"><i class="fab fa-youtube"></i> Highlights</a></td>
-                        </tr>
-                        <tr>
-                            <td><strong>3. Shri Krishna Janmashtami</strong></td>
-                            <td>The glorious appearance of Lord Krishna featuring midnight Maha-Abhishek and grand feast arrangements.</td>
-                            <td><a href="https://www.youtube.com" target="_blank" class="youtube-btn"><i class="fab fa-youtube"></i> Puja Track</a></td>
-                        </tr>
-                        <tr>
-                            <td><strong>4. Shri Radhashtami</strong></td>
-                            <td>Celebrating Shrimati Radharani's appearance day with pristine, colorful local flower structures and special songs.</td>
-                            <td><a href="https://www.youtube.com" target="_blank" class="youtube-btn"><i class="fab fa-youtube"></i> Festival Clip</a></td>
-                        </tr>
-                        <tr>
-                            <td><strong>5. Kartik Maas / Deepotsava</strong></td>
-                            <td>A holy month-long lamp festival where hundreds of earthen diyas are lit up inside the premises nightly.</td>
-                            <td><a href="https://www.youtube.com" target="_blank" class="youtube-btn"><i class="fab fa-youtube"></i> Darshan Video</a></td>
-                        </tr>
-                        <tr>
-                            <td><strong>6. Shri Gaura Purnima</strong></td>
-                            <td>The divine advent festival of Chaitanya Mahaprabhu marked by joyous congregation chanting and colors.</td>
-                            <td><a href="https://www.youtube.com" target="_blank" class="youtube-btn"><i class="fab fa-youtube"></i> Watch Kirtan</a></td>
-                        </tr>
-                        <tr>
-                            <td><strong>7. Jagannath Mishra Utsav</strong></td>
-                            <td>Observed the day directly following Gaura Purnima, honoring an abundant feast cooked in traditional community style.</td>
-                            <td><a href="https://www.youtube.com" target="_blank" class="youtube-btn"><i class="fab fa-youtube"></i> Mahaprasad</a></td>
-                        </tr>
-                        <tr>
-                            <td><strong>8. Nityananda Trayodashi</strong></td>
-                            <td>Celebrating the dynamic advent of Lord Nityananda with beautifully organized public processions and distribution.</td>
-                            <td><a href="https://www.youtube.com" target="_blank" class="youtube-btn"><i class="fab fa-youtube"></i> Procession</a></td>
-                        </tr>
-                        <tr>
-                            <td><strong>9. Chandan Yatra Days</strong></td>
-                            <td>An elegant summer relief event where the divine Deities are cooling-coated in real hand-ground sandalwood paste.</td>
-                            <td><a href="https://www.youtube.com" target="_blank" class="youtube-btn"><i class="fab fa-youtube"></i> Shringar Track</a></td>
-                        </tr>
-                        <tr>
-                            <td><strong>10. Shrimad Gita Jayanti</strong></td>
-                            <td>Commemorating the spoken discourse of the Bhagavad Gita with large-scale local public chanting of all 18 chapters.</td>
-                            <td><a href="https://www.youtube.com" target="_blank" class="youtube-btn"><i class="fab fa-youtube"></i> Chanting Log</a></td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="leaders-container">
+                <div class="leader-row">
+                    <div class="leader-pic-side">
+                        <img src="https://images.unsplash.com/photo-1609137144813-2d2ecb27a694?auto=format&fit=crop&w=400&q=80" alt="Sahadeva das">
+                    </div>
+                    <div class="leader-info-side">
+                        <h3>HG Sahadeva Das</h3>
+                        <span class="leader-role">Shiksha Guru</span>
+                        <p>An exemplary spiritual educator who consistently delivers deep scriptural insights to the congregation. His foundational guidance structures our ongoing community classes, helping local families integrate Vedic concepts into everyday life.</p>
+                    </div>
+                </div>
+
+                <div class="leader-row">
+                    <div class="leader-pic-side">
+                        <img src="https://images.unsplash.com/photo-1621360841013-c7683c659ec6?auto=format&fit=crop&w=400&q=80" alt="Mahaman guru Maharaj">
+                    </div>
+                    <div class="leader-info-side">
+                        <h3>HH Mahaman Guru Maharaj</h3>
+                        <span class="leader-role">Deeksha Guru</span>
+                        <p>A deeply revered initiating master whose powerful spiritual focus has connected hundreds of local seekers to formal devotional shelter. His occasional temple visits always feature sublime, heart-transforming initiation fires and traditional assemblies.</p>
+                    </div>
+                </div>
+
+                <div class="leader-row">
+                    <div class="leader-pic-side">
+                        <img src="https://images.unsplash.com/photo-1601574901174-5fe39a2fb6a7?auto=format&fit=crop&w=400&q=80" alt="Shravan bhakt prabhuji">
+                    </div>
+                    <div class="leader-info-side">
+                        <h3>HG Shravan Bhakt Prabhuji</h3>
+                        <span class="leader-role">Senior Preacher & Kirtan Guide</span>
+                        <p>Widely celebrated for his absolute dedication to congregational development. He consistently visits Bidar to head large-scale community kirtan gatherings, illuminating how sacred sound vibration helps heal structural social stress.</p>
+                    </div>
+                </div>
+
+                <div class="leader-row">
+                    <div class="leader-pic-side">
+                        <img src="https://images.unsplash.com/photo-1609137144813-2d2ecb27a694?auto=format&fit=crop&w=400&q=80" alt="Amogh lelea prabhuji">
+                    </div>
+                    <div class="leader-info-side">
+                        <h3>HG Amogh Leela Prabhuji</h3>
+                        <span class="leader-role">Renowned Motivational Speaker</span>
+                        <p>A widely celebrated lifestyle counselor and modern monk who explains ancient scriptural facts using delightful real-world humor and everyday logic. His massive public assemblies in Bidar draw huge crowds of young professionals and students.</p>
+                    </div>
+                </div>
+
+                <div class="leader-row">
+                    <div class="leader-pic-side">
+                        <img src="https://images.unsplash.com/photo-1621360841013-c7683c659ec6?auto=format&fit=crop&w=400&q=80" alt="Radhika kripa Devi dasi">
+                    </div>
+                    <div class="leader-info-side">
+                        <h3>HG Radhika Kripa Devi Dasi</h3>
+                        <span class="leader-role">Bhakti Discourse Speaker</span>
+                        <p>A deeply loved speaker who fills the hearts of local audiences with sweet, deeply emotional discourses on pure Bhakti philosophy. Her classes focus on internal meditative steps and household peace.</p>
+                    </div>
+                </div>
+
+                <div class="leader-row">
+                    <div class="leader-pic-side">
+                        <img src="https://images.unsplash.com/photo-1601574901174-5fe39a2fb6a7?auto=format&fit=crop&w=400&q=80" alt="Klinkar Damodar maharaj">
+                    </div>
+                    <div class="leader-info-side">
+                        <h3>HH Kinkar Damodar Maharaj</h3>
+                        <span class="leader-role">Traveling Sannyasi & Scholar</span>
+                        <p>An ascetic whose profound lifestyle and detailed scriptural analysis serve as a beautiful inspiration. His lectures provide deep cross-references across multiple classic standard text compilations.</p>
+                    </div>
+                </div>
+
+                <div class="leader-row">
+                    <div class="leader-pic-side">
+                        <img src="https://images.unsplash.com/photo-1609137144813-2d2ecb27a694?auto=format&fit=crop&w=400&q=80" alt="sachi sootha das">
+                    </div>
+                    <div class="leader-info-side">
+                        <h3>HG Sachi Suta Das</h3>
+                        <span class="leader-role">Youth Outreach Coordinator</span>
+                        <p>A high-energy counselor focused completely on directing youth talent toward community support and clean values. His seminars regularly clarify practical career challenges through ethical lenses.</p>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <hr style="border: 0; height: 1px; background: var(--border-color); margin: 40px 0;">
+        <hr style="border: 0; height: 1px; background: var(--border-color, #eaeaea); margin: 50px 0;">
 
-        <section class="gallery-section" style="margin-bottom: 70px;">
-            <h2>Ratha Yatra Milestone Highlights</h2>
-            <p class="sub-heading-center">Tracking the historic spiritual footprints of Bidar's most anticipated annual chariot gathering.</p>
+        <!-- SECTION 4: TOP 10 ANNUAL TEMPLE FESTIVALS -->
+        <section class="gallery-section">
+            <h2 class="highlighted-title">Top 10 Annual Festivals</h2>
+            <p class="sub-heading-center">Participate in our vibrant, year-round festive schedule. Browse our core community celebrations and watch historical visual highlights below.</p>
             
-            <div class="ratha-milestones">
-                <div class="milestone-card">
-                    <span class="milestone-badge">Past Glory</span>
-                    <h3>Ratha Yatra 2025</h3>
-                    <p>An unforgettable spiritual victory for the Mamankeri community. Tens of thousands gathered in unified harmony.</p>
-                    <ul>
-                        <li>Massive <strong>Maha-Prasadam distribution</strong> to over 5,000 local visitors.</li>
-                        <li>Non-stop enthusiastic congregational singing groups filling the district with positive energy.</li>
-                        <li>Flawless chariot navigation supported beautifully by local volunteer divisions.</li>
-                    </ul>
+            <div class="festivals-grid">
+                <!-- 1. Sri Jagannath Ratha Yatra -->
+                <div class="festival-card">
+                    <div class="festival-img-box">
+                        <span class="festival-num-badge">1</span>
+                        <img src="https://sgttimes.com/wp-content/uploads/2025/06/GudvkwRbwAEPhXC.jpeg" alt="Sri Jagannath Ratha Yatra">
+                    </div>
+                    <div class="festival-content">
+                        <h3>Sri Jagannath Ratha Yatra</h3>
+                        <p>The majestic chariot festival bringing the Lord outside the sanctum sanctorum to meet, look upon, and bless all citizens across Bidar.</p>
+                        <div class="festival-action">
+                            <a href="https://www.youtube.com" target="_blank" class="youtube-btn"><i class="fab fa-youtube"></i> Watch Live Track</a>
+                        </div>
+                    </div>
                 </div>
-                
-                <div class="milestone-card" style="border-color: var(--accent-color);">
-                    <span class="milestone-badge" style="background-color: #27ae60;">Upcoming</span>
-                    <h3>Ratha Yatra 2026</h3>
-                    <p><strong>Scheduled Launch: Friday, July 16, 2026</strong>. Plans are currently underway to make this our most magnificent street procession yet!</p>
-                    <ul>
-                        <li>Brand new security layouts and grand chariot structure reinforcements.</li>
-                        <li>Expanded cultural stage showcases for national bhajan and spiritual drama troupes.</li>
-                        <li>Special guest keynotes scheduled with traveling international monks.</li>
-                    </ul>
+
+                <!-- 2. Snana Yatra Celebration -->
+                <div class="festival-card">
+                    <div class="festival-img-box">
+                        <span class="festival-num-badge">2</span>
+                        <img src="https://www.iskconbangalore.co.in/sites/default/files/styles/content_hero_banner_phone/public/2024-08/SnanaCiddaDahi.jpg?itok=n4udTA3s" alt="Snana Yatra Celebration">
+                    </div>
+                    <div class="festival-content">
+                        <h3>Snana Yatra Celebration</h3>
+                        <p>An ecstatic open bathing public festival where the Deities are systematically bathed with 108 pots of energized, fragrant herbal water juices.</p>
+                        <div class="festival-action">
+                            <a href="https://www.youtube.com" target="_blank" class="youtube-btn"><i class="fab fa-youtube"></i> View Highlights</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Shri Krishna Janmashtami -->
+                <div class="festival-card">
+                    <div class="festival-img-box">
+                        <span class="festival-num-badge">3</span>
+                        <img src="https://www.hindustantimes.com/ht-img/img/2023/09/07/original/PTI09-07-2023-000213A-0_1694087601164.jpg" alt="Shri Krishna Janmashtami">
+                    </div>
+                    <div class="festival-content">
+                        <h3>Shri Krishna Janmashtami</h3>
+                        <p>The glorious appearance day celebration of Lord Krishna featuring complex midnight Maha-Abhishek bathing rituals and immense feast operations.</p>
+                        <div class="festival-action">
+                            <a href="https://www.youtube.com" target="_blank" class="youtube-btn"><i class="fab fa-youtube"></i> View Puja Track</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Shri Radhashtami -->
+                <div class="festival-card">
+                    <div class="festival-img-box">
+                        <span class="festival-num-badge">4</span>
+                        <img src="https://images.unsplash.com/photo-1621360841013-c7683c659ec6?auto=format&fit=crop&w=600&q=80" alt="Shri Radhashtami">
+                    </div>
+                    <div class="festival-content">
+                        <h3>Shri Radhashtami</h3>
+                        <p>Honoring the divine advent appearance of Shrimati Radharani with gorgeous, colorful local flower structures and sweet devotional songs.</p>
+                        <div class="festival-action">
+                            <a href="https://www.youtube.com" target="_blank" class="youtube-btn"><i class="fab fa-youtube"></i> Festival Clip</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. Kartik Maas / Deepotsava -->
+                <div class="festival-card">
+                    <div class="festival-img-box">
+                        <span class="festival-num-badge">5</span>
+                        <img src="https://dharmikapp.in/cdn/shop/articles/4d44e1ed-3ea6-494e-ab55-46edd74b9439_3fe70cca-43db-481d-82fd-2c001a602c88.jpg?v=1761376101&width=1100" alt="Kartik Maas Deepotsava">
+                    </div>
+                    <div class="festival-content">
+                        <h3>Kartik Maas / Deepotsava</h3>
+                        <p>A month-long evening lamp-lighting festival where hundreds of standard clay diyas are offered by global pilgrims inside the main halls.</p>
+                        <div class="festival-action">
+                            <a href="https://www.youtube.com" target="_blank" class="youtube-btn"><i class="fab fa-youtube"></i> Darshan Video</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. Shri Gaura Purnima -->
+                <div class="festival-card">
+                    <div class="festival-img-box">
+                        <span class="festival-num-badge">6</span>
+                        <img src="https://images.unsplash.com/photo-1601574901174-5fe39a2fb6a7?auto=format&fit=crop&w=600&q=80" alt="Shri Gaura Purnima">
+                    </div>
+                    <div class="festival-content">
+                        <h3>Shri Gaura Purnima</h3>
+                        <p>The sacred appearance festival of Chaitanya Mahaprabhu marked by joyous congregation chanting, dynamic dances, and color distributions.</p>
+                        <div class="festival-action">
+                            <a href="https://www.youtube.com" target="_blank" class="youtube-btn"><i class="fab fa-youtube"></i> Watch Kirtan</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 7. Jagannath Mishra Utsav -->
+                <div class="festival-card">
+                    <div class="festival-img-box">
+                        <span class="festival-num-badge">7</span>
+                        <img src="https://images.unsplash.com/photo-1609137144813-2d2ecb27a694?auto=format&fit=crop&w=600&q=80" alt="Jagannath Mishra Utsav">
+                    </div>
+                    <div class="festival-content">
+                        <h3>Jagannath Mishra Utsav</h3>
+                        <p>Observed the morning directly following Gaura Purnima, honoring an abundant feast cooked and served in classic traditional community scale style.</p>
+                        <div class="festival-action">
+                            <a href="https://www.youtube.com" target="_blank" class="youtube-btn"><i class="fab fa-youtube"></i> Mahaprasad Log</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 8. Nityananda Trayodashi -->
+                <div class="festival-card">
+                    <div class="festival-img-box">
+                        <span class="festival-num-badge">8</span>
+                        <img src="https://images.unsplash.com/photo-1621360841013-c7683c659ec6?auto=format&fit=crop&w=600&q=80" alt="Nityananda Trayodashi">
+                    </div>
+                    <div class="festival-content">
+                        <h3>Nityananda Trayodashi</h3>
+                        <p>Celebrating the advent of Lord Nityananda with wonderfully organized public street processions, scriptural readings, and free food distribution.</p>
+                        <div class="festival-action">
+                            <a href="https://www.youtube.com" target="_blank" class="youtube-btn"><i class="fab fa-youtube"></i> View Procession</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 9. Chandan Yatra Days -->
+                <div class="festival-card">
+                    <div class="festival-img-box">
+                        <span class="festival-num-badge">9</span>
+                        <img src="https://images.unsplash.com/photo-1601574901174-5fe39a2fb6a7?auto=format&fit=crop&w=600&q=80" alt="Chandan Yatra Days">
+                    </div>
+                    <div class="festival-content">
+                        <h3>Chandan Yatra Days</h3>
+                        <p>A beautiful 21-day summer cooling relief event where the Deities are covered in hand-ground premium sandalwood paste to beat the peak heat.</p>
+                        <div class="festival-action">
+                            <a href="https://www.youtube.com" target="_blank" class="youtube-btn"><i class="fab fa-youtube"></i> Shringar Track</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 10. Shrimad Gita Jayanti -->
+                <div class="festival-card">
+                    <div class="festival-img-box">
+                        <span class="festival-num-badge">10</span>
+                        <img src="https://images.unsplash.com/photo-1609137144813-2d2ecb27a694?auto=format&fit=crop&w=600&q=80" alt="Shrimad Gita Jayanti">
+                    </div>
+                    <div class="festival-content">
+                        <h3>Shrimad Gita Jayanti</h3>
+                        <p>Commemorating the delivery of the Bhagavad Gita text with massive congregational public recitation chanting of all 18 standard chapters.</p>
+                        <div class="festival-action">
+                            <a href="https://www.youtube.com" target="_blank" class="youtube-btn"><i class="fab fa-youtube"></i> Chanting Track</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -504,11 +784,11 @@
             <div class="footer-section">
                 <h4>Contact Info</h4>
                 <p style="line-height: 1.6; margin-bottom: 15px;">
-        📍 Shri Jagannath Temple<br>
-        Chikpet, Hyderabad bypass road<br>
-        Kabirwada, Bidar, Karnataka - 585401
-    </p>
-    <div class="footer-phone-container" style="margin-bottom: 10px; line-height: 1.6;">
+                    📍 Shri Jagannath Temple<br>
+                    Chikpet, Hyderabad bypass road<br>
+                    Kabirwada, Bidar, Karnataka - 585401
+                </p>
+                <div class="footer-phone-container" style="margin-bottom: 10px; line-height: 1.6;">
                     <span>📞 </span>
                     <div class="footer-phone-links" style="display: inline-block; vertical-align: top;">
                         <a href="tel:+917780614325" style="color: inherit; text-decoration: none;">+91 77806 14325</a> <br>
@@ -516,7 +796,7 @@
                         <a href="tel:+919901703583" style="color: inherit; text-decoration: none;">+91 99017 03583</a>
                     </div>
                 </div>
-                <p>📧 <a href="mailto:shri.krishnachaitanya.trust@gmail.com" style="color: inherit; text-decoration: none; word-break: break-all;">shri.krishnaychaitanya.trust@gmail.com</a></p>
+                <p>📧 <a href="mailto:shri.krishnachaitanya.trust@gmail.com" style="color: inherit; text-decoration: none; word-break: break-all;">shri.krishnachaitanya.trust@gmail.com</a></p>
             </div>
             <div class="footer-section">
                 <h4>Follow Us</h4>
