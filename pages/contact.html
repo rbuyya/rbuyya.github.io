@@ -83,7 +83,10 @@
         <section class="contact-form-section">
             <h2>Send Us a Message</h2>
             <div class="form-container">
-                <form id="contactForm" class="contact-form">
+                <form id="contactForm" class="contact-form" action="https://formsubmit.co/shri.krishnachaitanya.trust@gmail.com" method="POST">
+                    <input type="text" name="_honey" style="display:none">
+                    <input type="hidden" name="_captcha" value="false">
+                    
                     <div class="form-group">
                         <label for="name">Full Name *</label>
                         <input type="text" id="name" name="name" required>
@@ -284,7 +287,6 @@
     </footer>
 
     <style>
-        /* All template layout properties and background states below match your exact original configuration file */
         .contact-info-section {
             padding: 60px 0;
             background: white;
@@ -328,7 +330,7 @@
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
-            min-width: 0; /* Prevents overflow from string sizing dimensions */
+            min-width: 0;
         }
 
         .contact-info-card:hover {
@@ -359,7 +361,7 @@
             text-decoration: none;
             font-weight: 500;
             display: inline-block;
-            word-break: break-word; /* Prevents long emails from running over borders */
+            word-break: break-word;
             overflow-wrap: break-word;
         }
 
@@ -486,7 +488,6 @@
             line-height: 1.8;
         }
 
-        /* FAQ In-text link structural safety formatting */
         .faq-phones {
             display: inline-block;
         }
@@ -499,7 +500,6 @@
             text-decoration: underline;
         }
 
-        /* Footer context link formatting properties */
         .footer-phone-links a:hover {
             text-decoration: underline;
         }
@@ -573,10 +573,40 @@
     </style>
 
     <script>
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for your message! We will get back to you soon.');
-            this.reset();
+        const form = document.getElementById('contactForm');
+        
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault(); // Stop page from refreshing or redirecting away
+            
+            // Visual indicators for submission progress
+            const submitButton = form.querySelector('.cta-button');
+            const originalText = submitButton.textContent;
+            submitButton.textContent = 'Sending...';
+            submitButton.disabled = true;
+
+            try {
+                const data = new FormData(form);
+                const response = await fetch(form.action, {
+                    method: form.method,
+                    body: data,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    alert('Thank you for your message! The temple team will receive it and get back to you soon.');
+                    form.reset();
+                } else {
+                    alert('Oops! There was a problem submitting your form. Please try calling the temple numbers directly.');
+                }
+            } catch (error) {
+                alert('Connection error. Please check your internet connection or reach out via phone.');
+            } finally {
+                // Revert button back to active state
+                submitButton.textContent = originalText;
+                submitButton.disabled = false;
+            }
         });
     </script>
 </body>
