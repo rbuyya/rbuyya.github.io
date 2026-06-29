@@ -8,53 +8,84 @@
     <title>Sri Jagannath Temple - Bidar</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <style>
-        /* Announcement Ticker Styling */
+        /* Modern Trending Announcement Ticker */
         .announcement-ticker {
-            background: #ff6f00; /* Spiritual Deep Saffron/Orange */
-            color: #ffffff;
-            padding: 12px 0;
-            overflow: hidden;
+            background: #111111; /* Dark sleek obsidian background */
             position: relative;
-            border-bottom: 3px solid #d4af37; /* Gold accent border */
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            font-size: 1rem;
-            letter-spacing: 0.5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+            overflow: hidden;
+            padding: 14px 0;
+            border-bottom: 2px solid #ff6f00; /* Vibrant saffron baseline accent */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+        }
+
+        /* Ambient glow effect behind the text */
+        .announcement-ticker::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(90deg, #ff6f00 0%, transparent 20%, transparent 80%, #ff6f00 100%);
+            opacity: 0.15;
+            pointer-events: none;
+            z-index: 2;
         }
 
         .ticker-wrap {
             width: 100%;
             overflow: hidden;
             white-space: nowrap;
-            display: flex;
+            position: relative;
         }
 
         .ticker-content {
             display: inline-block;
             padding-left: 100%;
-            animation: marquee 25s linear infinite;
+            animation: marquee 28s linear infinite;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-weight: 500;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #e0e0e0;
         }
 
-        .ticker-content strong {
-            color: #ffd700; /* Bright Gold for emphasis */
-            margin-right: 5px;
+        /* Modern Typography Accents */
+        .ticker-badge {
+            background: linear-gradient(135deg, #ff8f00, #ff6f00);
+            color: #ffffff;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-right: 15px;
+            box-shadow: 0 2px 8px rgba(255, 111, 0, 0.4);
+            display: inline-block;
+            vertical-align: middle;
         }
 
-        /* Pause scrolling on hover for easy reading */
+        .highlight-text {
+            color: #ffd700; /* Bright gold for dates & locations */
+            font-weight: 700;
+        }
+
+        .divider-dot {
+            color: #ff6f00;
+            margin: 0 20px;
+            display: inline-block;
+        }
+
+        /* Smooth interaction */
         .announcement-ticker:hover .ticker-content {
             animation-play-state: paused;
             cursor: pointer;
         }
 
-        /* Smooth CSS Animation */
         @keyframes marquee {
-            0% {
-                transform: translate3d(0, 0, 0);
-            }
-            100% {
-                transform: translate3d(-100%, 0, 0);
-            }
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-100%, 0, 0); }
         }
     </style>
 </head>
@@ -79,7 +110,13 @@
     <div class="announcement-ticker">
         <div class="ticker-wrap">
             <div class="ticker-content">
-                <strong>📢 Important Announcement:</strong> Shri Jagannath Temple Bidar Ratha Yatra 2026 is being held on July 19 from Sri Laxmi Satynarayan Temple to Shri Jagannath Temple. Join and be part of the Holy Ratha Yatra of Lord Prabhu Jagannath! ✨ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="ticker-badge">📢 ANNOUNCEMENT</span> 
+                Shri Jagannath Temple Bidar <span class="highlight-text">Ratha Yatra 2026</span> is being held on <span class="highlight-text">July 19</span> 
+                <span class="divider-dot">•</span> 
+                Route: From <span class="highlight-text">Sri Laxmi Satynarayan Temple</span> to <span class="highlight-text">Shri Jagannath Temple</span> 
+                <span class="divider-dot">•</span> 
+                Join and be part of the Holy Ratha Yatra of Lord Prabhu Jagannath! ✨ 
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </div>
         </div>
     </div>
