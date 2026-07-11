@@ -7,6 +7,388 @@
     <title>About - Sri Jagannatha Temple</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+    
+    <style>
+        /* Base Page Setup & Section Dividers */
+        .section-divider {
+            border: 0;
+            height: 1px;
+            background: linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,0.1), rgba(0,0,0,0));
+            margin: 40px 0;
+        }
+
+        .about-section {
+            padding: 50px 0;
+            background: white;
+        }
+
+        .about-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #222;
+            margin-bottom: 3rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .about-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: #ff9900;
+            border-radius: 2px;
+        }
+
+        /* Unified Card Container inspired by reference example */
+        .divine-card-container {
+            display: flex;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            max-width: 1100px;
+            margin: 0 auto;
+            border: 1px solid #eaeaea;
+            align-items: stretch;
+        }
+
+        /* Left Image Column Layout - Displays the full original graphic */
+        .card-image-side {
+            flex: 0 0 45%; 
+            position: relative;
+            background: #fffdf9;
+        }
+
+        .krishna-source-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Right Text Column Layout */
+        .card-text-side {
+            flex: 0 0 55%;
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: #ffffff;
+        }
+
+        .card-text-side h3 {
+            font-size: 1.8rem;
+            color: #c97d16;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .pratigya-lines p {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: #444;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .bullet-icon {
+            color: #ff9900;
+            margin-right: 12px;
+            margin-top: 5px;
+            font-size: 0.85rem;
+        }
+
+        .signature-tag {
+            display: block;
+            text-align: right;
+            font-weight: bold;
+            color: #b35300;
+            margin-top: 15px;
+            font-size: 1.1rem;
+        }
+
+        /* Journey Timeline Stylesheet */
+        .journey-section {
+            padding: 60px 0;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .journey-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .journey-header h2 {
+            font-size: 2.5rem;
+            color: #222;
+            margin-bottom: 0.5rem;
+        }
+
+        .journey-header .subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            font-style: italic;
+        }
+
+        .story-timeline {
+            position: relative;
+            padding-left: 50px;
+            margin-bottom: 4rem;
+        }
+
+        .story-timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 10px;
+            bottom: 10px;
+            width: 4px;
+            background: linear-gradient(to bottom, #ff9900, #ffcc66);
+            border-radius: 2px;
+        }
+
+        .story-block {
+            position: relative;
+            margin-bottom: 3rem;
+        }
+
+        .story-badge {
+            position: absolute;
+            left: -50px;
+            top: 0;
+            width: 44px;
+            height: 44px;
+            background: #ff9900;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 10px rgba(255, 153, 0, 0.3);
+            z-index: 2;
+        }
+
+        .story-content {
+            background: #fbfbfc;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            border: 1px solid #f0f0f0;
+        }
+
+        .story-content h3 {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 0.5rem;
+        }
+
+        .story-content p {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: #555;
+            margin-bottom: 1rem;
+        }
+
+        .gita-quote-box {
+            background: #fff8eb;
+            border-left: 4px solid #e67e22;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .gita-quote-box .shloka {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #b35300;
+            margin-bottom: 0.8rem;
+            line-height: 1.6;
+        }
+
+        .gita-quote-box .translation {
+            font-size: 1rem;
+            color: #555;
+            font-style: italic;
+            line-height: 1.5;
+        }
+
+        .gita-quote-box .verse-ref {
+            display: block;
+            margin-top: 5px;
+            font-weight: bold;
+            color: #777;
+        }
+
+        .story-list {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        .story-list li {
+            font-size: 1.05rem;
+            color: #555;
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        .motive-highlight-card {
+            background: linear-gradient(135deg, #fff7e6 0%, #ffeed4 100%);
+            border: 2px dashed #ff9900;
+            padding: 3rem;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(255,153,0,0.06);
+        }
+
+        .motive-highlight-card blockquote {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #d35400;
+            margin-bottom: 1.5rem;
+            font-family: serif;
+        }
+
+        .motive-highlight-card p {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: #444;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* General Sections Grids Styles */
+        .deity-section {
+            padding: 60px 0;
+            background: #f9f9f9;
+        }
+
+        .deity-section h2, .highlights-section h2, .values-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #222;
+            margin-bottom: 3rem;
+        }
+
+        .deity-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .deity-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-top: 4px solid #ff9900;
+        }
+
+        .deity-card i {
+            font-size: 3rem;
+            color: #ff9900;
+            margin-bottom: 1rem;
+        }
+
+        .highlights-section {
+            padding: 60px 0;
+            background: white;
+        }
+
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .highlight-item {
+            text-align: center;
+            padding: 2rem;
+            background: #f9f9f9;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .highlight-item:hover {
+            transform: translateY(-5px);
+            background: white;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .highlight-icon {
+            font-size: 3rem;
+            color: #ff9900;
+            margin-bottom: 1rem;
+        }
+
+        .values-section {
+            padding: 60px 0;
+            background: #f9f9f9;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .value-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            border-left: 4px solid #ff9900;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Responsive Mobile Layout Stack */
+        @media (max-width: 900px) {
+            .divine-card-container {
+                flex-direction: column;
+            }
+            .card-image-side, .card-text-side {
+                flex: 0 0 100%;
+                width: 100%;
+            }
+            .card-text-side {
+                padding: 1.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .about-section h2, .journey-header h2, .deity-section h2, .highlights-section h2, .values-section h2 {
+                font-size: 1.8rem;
+            }
+            .story-timeline {
+                padding-left: 20px;
+            }
+            .story-timeline::before {
+                left: -5px;
+            }
+            .story-badge {
+                left: -25px;
+                width: 36px;
+                height: 36px;
+                font-size: 1rem;
+            }
+            .motive-highlight-card {
+                padding: 1.5rem;
+            }
+            .motive-highlight-card blockquote {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
@@ -36,38 +418,34 @@
     <!-- Main Content -->
     <main class="container">
         
-        <!-- Section 1: History & Heritage Section (Krishna Left, Pratigya Lines Right) -->
+        <!-- Section 1: History & Heritage Section (Side-by-Side Unified Split Card Layout) -->
         <section class="about-section">
             <h2>Our History & Heritage</h2>
-            <div class="custom-split-container">
+            <div class="divine-card-container">
                 
-                <!-- Left Column: Focuses purely on the Krishna side of your image -->
-                <div class="krishna-photo-side">
-                    <div class="crop-wrapper">
-                        <img src="../ShriJagannathaTemple_files/god.png" alt="Lord Krishna Divine Form" class="krishna-cropped-img">
-                    </div>
+                <!-- Left Side: Original Uncropped Image Frame -->
+                <div class="card-image-side">
+                    <img src="../ShriJagannathaTemple_files/god.png" alt="Lord Krishna Divine Artwork" class="krishna-source-img">
                 </div>
                 
-                <!-- Right Column: The actual readable text lines -->
-                <div class="pratigya-text-side">
-                    <div class="divine-promise-card">
-                        <h3>✨ भगवान की प्रतिज्ञा ✨</h3>
-                        <div class="poetry-lines">
-                            <p><i class="fas fa-dharmachakra poetry-icon"></i> मेरे मार्ग पर पैर रखकर तो देख, तेरे सब मार्ग न खोल दूँ तो कहना।</p>
-                            <p><i class="fas fa-dharmachakra poetry-icon"></i> मेरे लिये खर्च करके तो देख, कुबेर के भंडार न खोल दूँ तो कहना।</p>
-                            <p><i class="fas fa-dharmachakra poetry-icon"></i> मेरे लिये कड़वे वचन सुनकर तो देख, कृपा न बरसे तो कहना।</p>
-                            <p><i class="fas fa-dharmachakra poetry-icon"></i> मेरी तरफ आकर तो देख, तेरा ध्यान न रखूँ तो कहना।</p>
-                            <p><i class="fas fa-dharmachakra poetry-icon"></i> मेरी बातें लोगों से करके तो देख, तुझे मूल्यवान न बना दूँ तो कहना।</p>
-                            <p><i class="fas fa-dharmachakra poetry-icon"></i> मुझे अपना मददगार बनाकर तो देख, तुझे सबकी गुलामी से न छुड़ा दूँ तो कहना।</p>
-                            <p><i class="fas fa-dharmachakra poetry-icon"></i> मेरे लिये आंसू बहाकर तो देख, तेरे जीवन में आनन्द के सागर न भर दूँ तो कहना।</p>
-                            <p><i class="fas fa-dharmachakra poetry-icon"></i> मेरे लिये कुछ बनकर तो देख, तुझे कीमती न बना दूँ तो कहना।</p>
-                            <p><i class="fas fa-dharmachakra poetry-icon"></i> मेरे मार्ग पर निकल कर तो देख, तुझे शान्ति दूत न बना दूँ तो कहना।</p>
-                            <p><i class="fas fa-dharmachakra poetry-icon"></i> स्वयं को न्योछावर करके तो देख, तुझे मशहूर न करा दूँ तो कहना।</p>
-                            <p><i class="fas fa-dharmachakra poetry-icon"></i> मेरा कीर्तन करके तो देख, जगत का विस्मरण न करा दूँ तो कहना।</p>
-                            <p><i class="fas fa-dharmachakra poetry-icon"></i> तू मेरा बनकर तो देख, हर एक को तेरा न बना दूँ तो कहना।</p>
-                        </div>
-                        <span class="signature-text">|| भगवान श्री कृष्ण ||</span>
+                <!-- Right Side: Clean Structured HTML Pratigya Poetry Text Lines -->
+                <div class="card-text-side">
+                    <h3>✨ भगवान की प्रतिज्ञा ✨</h3>
+                    <div class="pratigya-lines">
+                        <p><i class="fas fa-dharmachakra bullet-icon"></i> मेरे मार्ग पर पैर रखकर तो देख, तेरे सब मार्ग न खोल दूँ तो कहना।</p>
+                        <p><i class="fas fa-dharmachakra bullet-icon"></i> मेरे लिये खर्च करके तो देख, कुबेर के भंडार न खोल दूँ तो कहना।</p>
+                        <p><i class="fas fa-dharmachakra bullet-icon"></i> मेरे लिये कड़वे वचन सुनकर तो देख, कृपा न बरसे तो कहना।</p>
+                        <p><i class="fas fa-dharmachakra bullet-icon"></i> मेरी तरफ आकर तो देख, तेरा ध्यान न रखूँ तो कहना।</p>
+                        <p><i class="fas fa-dharmachakra bullet-icon"></i> मेरी बातें लोगों से करके तो देख, तुझे मूल्यवान न बना दूँ तो कहना।</p>
+                        <p><i class="fas fa-dharmachakra bullet-icon"></i> मुझे अपना मददगार बनाकर तो देख, तुझे सबकी गुलामी से न छुड़ा दूँ तो कहना।</p>
+                        <p><i class="fas fa-dharmachakra bullet-icon"></i> मेरे लिये आंसू बहाकर तो देख, तेरे जीवन में आनन्द के सागर न भर दूँ तो कहना।</p>
+                        <p><i class="fas fa-dharmachakra bullet-icon"></i> मेरे लिये कुछ बनकर तो देख, तुझे कीमती न बना दूँ तो कहना।</p>
+                        <p><i class="fas fa-dharmachakra bullet-icon"></i> मेरे मार्ग पर निकल कर तो देख, तुझे शान्ति दूत न बना दूँ तो कहना।</p>
+                        <p><i class="fas fa-dharmachakra bullet-icon"></i> स्वयं को न्योछावर करके तो देख, तुझे मशहूर न करा दूँ तो कहना।</p>
+                        <p><i class="fas fa-dharmachakra bullet-icon"></i> मेरा कीर्तन करके तो देख, जगत का विस्मरण न करा दूँ तो कहना।</p>
+                        <p><i class="fas fa-dharmachakra bullet-icon"></i> तू मेरा बनकर तो देख, हर एक को तेरा न बना दूँ तो कहना।</p>
                     </div>
+                    <span class="signature-tag">|| भगवान श्री कृष्ण ||</span>
                 </div>
 
             </div>
@@ -88,7 +466,7 @@
                     <div class="story-badge"><i class="fas fa-cloud-sun"></i></div>
                     <div class="story-content">
                         <h3>🌅 The Dream</h3>
-                        <p>Six years ago, at the sacred hour of <strong>Brahmamurtha (4 a.m.)</strong>, Shivram Joshi Prabhu received a divine vision. Jagannath Mahaprabhu appeared before him and revealed that a grand temple would rise in Bidar, destined to become a beacon of devotion for generations. This was not just a thought — it was a calling, a mission that would demand courage, sacrifice, and unshakable belief.</p>
+                        <p>Six years ago, at the sacred hour of <strong>Brahmamurtha (4 a.m.)</strong>, Jagannath Mahaprabhu appeared before him and revealed that a grand temple would rise in Bidar, destined to become a beacon of devotion for generations. This was not just a thought — it was a calling, a mission that would demand courage, sacrifice, and unshakable belief.</p>
                         <p>From that moment, Shivram Joshi Prabhu carried the dream in his heart. He knew the journey would be long and filled with obstacles, but he also knew that when God himself plants a vision, it is destined to come true.</p>
                     </div>
                 </div>
@@ -275,394 +653,5 @@
             <p>© 2026 Shri Jagannatha Temple. All rights reserved.</p>
         </div>
     </footer>
-
-    <!-- Style Tweaks for Image Split Layout -->
-    <style>
-        .section-divider {
-            border: 0;
-            height: 1px;
-            background: linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,0.1), rgba(0,0,0,0));
-            margin: 40px 0;
-        }
-
-        .about-section {
-            padding: 50px 0;
-            background: white;
-        }
-
-        .about-section h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            color: #222;
-            margin-bottom: 3rem;
-            position: relative;
-            padding-bottom: 1rem;
-        }
-
-        .about-section h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: #ff9900;
-            border-radius: 2px;
-        }
-
-        /* Responsive Grid Setup */
-        .custom-split-container {
-            display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: 2rem;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Crop configuration targeting only the Krishna side of the picture */
-        .krishna-photo-side {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-        }
-
-        .crop-wrapper {
-            width: 100%;
-            max-width: 460px;
-            aspect-ratio: 0.82;
-            overflow: hidden;
-            border-radius: 8px;
-            border: 3px double #d4af37;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-            position: relative;
-        }
-
-        .krishna-cropped-img {
-            position: absolute;
-            width: 200%; /* Scale horizontally to let us translate out the built-in text */
-            height: 100%;
-            object-fit: cover;
-            left: -100%; /* Shifts frame directly to the center-right Krishna graphic position */
-        }
-
-        /* Devotional Quote Card Styling */
-        .divine-promise-card {
-            background: linear-gradient(135deg, #fffcf6 0%, #fff7e6 100%);
-            padding: 2.2rem;
-            border-radius: 12px;
-            border-left: 5px solid #ff9900;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-            position: relative;
-        }
-
-        .divine-promise-card h3 {
-            color: #333;
-            text-align: center;
-            font-size: 1.6rem;
-            margin-bottom: 1.5rem;
-            font-weight: 700;
-        }
-
-        .poetry-lines p {
-            font-size: 1.05rem;
-            line-height: 1.65;
-            color: #333;
-            margin-bottom: 0.8rem;
-            display: flex;
-            align-items: flex-start;
-        }
-
-        .poetry-icon {
-            color: #ff9900;
-            margin-right: 10px;
-            margin-top: 5px;
-            font-size: 0.85rem;
-        }
-
-        .signature-text {
-            display: block;
-            text-align: right;
-            font-weight: bold;
-            color: #b35300;
-            margin-top: 15px;
-            font-size: 1.1rem;
-        }
-
-        /* Journey Timeline Stylesheet */
-        .journey-section {
-            padding: 60px 0;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .journey-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .journey-header h2 {
-            font-size: 2.5rem;
-            color: #222;
-            margin-bottom: 0.5rem;
-        }
-
-        .journey-header .subtitle {
-            font-size: 1.2rem;
-            color: #666;
-            font-style: italic;
-        }
-
-        .story-timeline {
-            position: relative;
-            padding-left: 50px;
-            margin-bottom: 4rem;
-        }
-
-        .story-timeline::before {
-            content: '';
-            position: absolute;
-            left: 20px;
-            top: 10px;
-            bottom: 10px;
-            width: 4px;
-            background: linear-gradient(to bottom, #ff9900, #ffcc66);
-            border-radius: 2px;
-        }
-
-        .story-block {
-            position: relative;
-            margin-bottom: 3rem;
-        }
-
-        .story-badge {
-            position: absolute;
-            left: -50px;
-            top: 0;
-            width: 44px;
-            height: 44px;
-            background: #ff9900;
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            box-shadow: 0 4px 10px rgba(255, 153, 0, 0.3);
-            z-index: 2;
-        }
-
-        .story-content {
-            background: #fbfbfc;
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-            border: 1px solid #f0f0f0;
-        }
-
-        .story-content h3 {
-            font-size: 1.5rem;
-            color: #333;
-            margin-bottom: 1rem;
-            border-bottom: 2px solid #f0f0f0;
-            padding-bottom: 0.5rem;
-        }
-
-        .story-content p {
-            font-size: 1.05rem;
-            line-height: 1.7;
-            color: #555;
-            margin-bottom: 1rem;
-        }
-
-        .gita-quote-box {
-            background: #fff8eb;
-            border-left: 4px solid #e67e22;
-            padding: 1.5rem;
-            margin: 1.5rem 0;
-            border-radius: 4px;
-            text-align: center;
-        }
-
-        .gita-quote-box .shloka {
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: #b35300;
-            margin-bottom: 0.8rem;
-            line-height: 1.6;
-        }
-
-        .gita-quote-box .translation {
-            font-size: 1rem;
-            color: #555;
-            font-style: italic;
-            line-height: 1.5;
-        }
-
-        .gita-quote-box .verse-ref {
-            display: block;
-            margin-top: 5px;
-            font-weight: bold;
-            color: #777;
-        }
-
-        .story-list {
-            margin-left: 20px;
-            margin-top: 10px;
-        }
-
-        .story-list li {
-            font-size: 1.05rem;
-            color: #555;
-            margin-bottom: 0.5rem;
-            line-height: 1.6;
-        }
-
-        .motive-highlight-card {
-            background: linear-gradient(135deg, #fff7e6 0%, #ffeed4 100%);
-            border: 2px dashed #ff9900;
-            padding: 3rem;
-            border-radius: 16px;
-            text-align: center;
-            box-shadow: 0 8px 20px rgba(255,153,0,0.06);
-        }
-
-        .motive-highlight-card blockquote {
-            font-size: 2.2rem;
-            font-weight: 800;
-            color: #d35400;
-            margin-bottom: 1.5rem;
-            font-family: serif;
-        }
-
-        .motive-highlight-card p {
-            font-size: 1.15rem;
-            line-height: 1.8;
-            color: #444;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        /* Legacy Sections Grids */
-        .deity-section {
-            padding: 60px 0;
-            background: #f9f9f9;
-        }
-
-        .deity-section h2, .highlights-section h2, .values-section h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            color: #222;
-            margin-bottom: 3rem;
-        }
-
-        .deity-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .deity-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            border-top: 4px solid #ff9900;
-        }
-
-        .deity-card i {
-            font-size: 3rem;
-            color: #ff9900;
-            margin-bottom: 1rem;
-        }
-
-        .highlights-section {
-            padding: 60px 0;
-            background: white;
-        }
-
-        .highlights-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-        }
-
-        .highlight-item {
-            text-align: center;
-            padding: 2rem;
-            background: #f9f9f9;
-            border-radius: 10px;
-            transition: all 0.3s ease;
-        }
-
-        .highlight-item:hover {
-            transform: translateY(-5px);
-            background: white;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .highlight-icon {
-            font-size: 3rem;
-            color: #ff9900;
-            margin-bottom: 1rem;
-        }
-
-        .values-section {
-            padding: 60px 0;
-            background: #f9f9f9;
-        }
-
-        .values-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-        }
-
-        .value-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            text-align: center;
-            border-left: 4px solid #ff9900;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Responsive UI viewports adjustments */
-        @media (max-width: 992px) {
-            .custom-split-container {
-                grid-template-columns: 1fr;
-            }
-            .crop-wrapper {
-                max-width: 400px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .about-section h2, .journey-header h2, .deity-section h2, .highlights-section h2, .values-section h2 {
-                font-size: 1.8rem;
-            }
-            .story-timeline {
-                padding-left: 20px;
-            }
-            .story-timeline::before {
-                left: -5px;
-            }
-            .story-badge {
-                left: -25px;
-                width: 36px;
-                height: 36px;
-                font-size: 1rem;
-            }
-            .motive-highlight-card {
-                padding: 1.5rem;
-            }
-            .motive-highlight-card blockquote {
-                font-size: 1.8rem;
-            }
-        }
-    </style>
 </body>
 </html>
