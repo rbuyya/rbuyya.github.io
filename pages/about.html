@@ -36,17 +36,20 @@
     <!-- Main Content -->
     <main class="container">
         
-        <!-- Section 1: History & Heritage Section (Side-by-Side: Full Image Left, Devotional Poetry Right) -->
+        <!-- Section 1: History & Heritage Section (Krishna Left, Pratigya Lines Right) -->
         <section class="about-section">
             <h2>Our History & Heritage</h2>
-            <div class="about-split-container">
-                <!-- Left Column: The Full Image with Decorative Borders (No Cutoff) -->
-                <div class="about-image-side">
-                    <img src="../ShriJagannathaTemple_files/god.png" alt="Lord Krishna and Sri Jagannatha Divine Form" class="responsive-about-pic">
+            <div class="custom-split-container">
+                
+                <!-- Left Column: Focuses purely on the Krishna side of your image -->
+                <div class="krishna-photo-side">
+                    <div class="crop-wrapper">
+                        <img src="../ShriJagannathaTemple_files/god.png" alt="Lord Krishna Divine Form" class="krishna-cropped-img">
+                    </div>
                 </div>
                 
-                <!-- Right Column: Bhagvan Ki Pratigya Poetry Container -->
-                <div class="about-text-side">
+                <!-- Right Column: The actual readable text lines -->
+                <div class="pratigya-text-side">
                     <div class="divine-promise-card">
                         <h3>✨ भगवान की प्रतिज्ञा ✨</h3>
                         <div class="poetry-lines">
@@ -63,8 +66,10 @@
                             <p><i class="fas fa-dharmachakra poetry-icon"></i> मेरा कीर्तन करके तो देख, जगत का विस्मरण न करा दूँ तो कहना।</p>
                             <p><i class="fas fa-dharmachakra poetry-icon"></i> तू मेरा बनकर तो देख, हर एक को तेरा न बना दूँ तो कहना।</p>
                         </div>
+                        <span class="signature-text">|| भगवान श्री कृष्ण ||</span>
                     </div>
                 </div>
+
             </div>
         </section>
 
@@ -78,7 +83,6 @@
             </div>
 
             <div class="story-timeline">
-                
                 <!-- Step 1: The Dream -->
                 <div class="story-block">
                     <div class="story-badge"><i class="fas fa-cloud-sun"></i></div>
@@ -139,7 +143,6 @@
                         <p>Even after the successful construction, Shivram Joshi Prabhu continues to face daily operational challenges. He has never given up, and he never will. He continues to personally shoulder financial and operational burdens while planning pending construction expansions. His absolute love for the deities and dedication to the people of Bidar remains completely unshaken.</p>
                     </div>
                 </div>
-
             </div>
 
             <!-- Master Motive Line Card -->
@@ -156,26 +159,17 @@
                 <div class="deity-card">
                     <i class="fas fa-dharmachakra"></i>
                     <h3>Divine Manifestation</h3>
-                    <p>
-                        Lord Jagannatha is worshipped as the supreme divine force. His name means "Lord of the Universe" 
-                        and symbolizes universal love and compassion.
-                    </p>
+                    <p>Lord Jagannatha is worshipped as the supreme divine force. His name means "Lord of the Universe" and symbolizes universal love and compassion.</p>
                 </div>
                 <div class="deity-card">
                     <i class="fas fa-hands-praying"></i>
                     <h3>Spiritual Significance</h3>
-                    <p>
-                        The worship of Lord Jagannatha brings inner peace, spiritual growth, and liberation from worldly sorrows. 
-                        Devotees seek his blessings for prosperity and well-being.
-                    </p>
+                    <p>The worship of Lord Jagannatha brings inner peace, spiritual growth, and liberation from worldly sorrows. Devotees seek his blessings for prosperity and well-being.</p>
                 </div>
                 <div class="deity-card">
                     <i class="fas fa-heart"></i>
                     <h3>Universal Love</h3>
-                    <p>
-                        Lord Jagannatha's teachings emphasize universal brotherhood, compassion, and the importance of serving humanity. 
-                        His presence unites all believers in faith.
-                    </p>
+                    <p>Lord Jagannatha's teachings emphasize universal brotherhood, compassion, and the importance of serving humanity. His presence unites all believers in faith.</p>
                 </div>
             </div>
         </section>
@@ -185,30 +179,22 @@
             <h2>Temple Highlights</h2>
             <div class="highlights-grid">
                 <div class="highlight-item">
-                    <div class="highlight-icon">
-                        <i class="fas fa-gopuram"></i>
-                    </div>
+                    <div class="highlight-icon"><i class="fas fa-gopuram"></i></div>
                     <h3>Sacred Architecture</h3>
                     <p>Our temple features traditional Hindu architectural design with intricate carvings and sacred symbols.</p>
                 </div>
                 <div class="highlight-item">
-                    <div class="highlight-icon">
-                        <i class="fas fa-bell"></i>
-                    </div>
+                    <div class="highlight-icon"><i class="fas fa-bell"></i></div>
                     <h3>Daily Rituals</h3>
                     <p>Regular puja ceremonies and rituals are performed with utmost devotion throughout the day.</p>
                 </div>
                 <div class="highlight-item">
-                    <div class="highlight-icon">
-                        <i class="fas fa-users"></i> 
-                    </div>
+                    <div class="highlight-icon"><i class="fas fa-users"></i></div>
                     <h3>Community Center</h3>
                     <p>We serve as a hub for spiritual activities, cultural events, and social service programs.</p>
                 </div>
                 <div class="highlight-item">
-                    <div class="highlight-icon">
-                        <i class="fas fa-leaf"></i>
-                    </div>
+                    <div class="highlight-icon"><i class="fas fa-leaf"></i></div>
                     <h3>Spiritual Sanctuary</h3>
                     <p>A peaceful retreat for meditation, prayer, and spiritual contemplation for all devotees.</p>
                 </div>
@@ -290,9 +276,8 @@
         </div>
     </footer>
 
-    <!-- CSS Stylings definitions -->
+    <!-- Style Tweaks for Image Split Layout -->
     <style>
-        /* Base Section Dividers */
         .section-divider {
             border: 0;
             height: 1px;
@@ -300,16 +285,15 @@
             margin: 40px 0;
         }
 
-        /* Split Section Grid Configurations */
         .about-section {
-            padding: 60px 0;
+            padding: 50px 0;
             background: white;
         }
 
         .about-section h2 {
             text-align: center;
             font-size: 2.5rem;
-            color: var(--dark-color, #222);
+            color: #222;
             margin-bottom: 3rem;
             position: relative;
             padding-bottom: 1rem;
@@ -323,38 +307,45 @@
             transform: translateX(-50%);
             width: 80px;
             height: 4px;
-            background: var(--primary-color, #ff9900);
+            background: #ff9900;
             border-radius: 2px;
         }
 
-        .about-split-container {
+        /* Responsive Grid Setup */
+        .custom-split-container {
             display: grid;
-            grid-template-columns: 1fr 1.1fr; /* Refined columns ratio */
-            gap: 2.5rem;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 2rem;
             align-items: center;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
-        .about-image-side {
+        /* Crop configuration targeting only the Krishna side of the picture */
+        .krishna-photo-side {
             width: 100%;
             display: flex;
             justify-content: center;
-            align-items: center;
         }
 
-        /* Custom image boundaries preventing crop cutoffs */
-        .responsive-about-pic {
+        .crop-wrapper {
             width: 100%;
-            max-width: 520px;
-            height: auto;
-            object-fit: contain; /* Guarantees layout renders full text within picture */
+            max-width: 460px;
+            aspect-ratio: 0.82;
+            overflow: hidden;
             border-radius: 8px;
-            padding: 6px;
-            background: #ffffff;
-            border: 3px double #d4af37; /* Elegant gold border line design */
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            border: 3px double #d4af37;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            position: relative;
+        }
+
+        .krishna-cropped-img {
+            position: absolute;
+            width: 200%; /* Scale horizontally to let us translate out the built-in text */
+            height: 100%;
+            object-fit: cover;
+            left: -100%; /* Shifts frame directly to the center-right Krishna graphic position */
         }
 
         /* Devotional Quote Card Styling */
@@ -362,13 +353,13 @@
             background: linear-gradient(135deg, #fffcf6 0%, #fff7e6 100%);
             padding: 2.2rem;
             border-radius: 12px;
-            border-left: 5px solid var(--primary-color, #ff9900);
+            border-left: 5px solid #ff9900;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-            width: 100%;
+            position: relative;
         }
 
         .divine-promise-card h3 {
-            color: var(--dark-color, #333);
+            color: #333;
             text-align: center;
             font-size: 1.6rem;
             margin-bottom: 1.5rem;
@@ -385,16 +376,24 @@
         }
 
         .poetry-icon {
-            color: var(--primary-color, #ff9900);
+            color: #ff9900;
             margin-right: 10px;
             margin-top: 5px;
             font-size: 0.85rem;
         }
 
-        /* Journey Timeline Stylesheet Grid */
+        .signature-text {
+            display: block;
+            text-align: right;
+            font-weight: bold;
+            color: #b35300;
+            margin-top: 15px;
+            font-size: 1.1rem;
+        }
+
+        /* Journey Timeline Stylesheet */
         .journey-section {
             padding: 60px 0;
-            background: #ffffff;
             max-width: 1000px;
             margin: 0 auto;
         }
@@ -406,7 +405,7 @@
 
         .journey-header h2 {
             font-size: 2.5rem;
-            color: var(--dark-color, #222);
+            color: #222;
             margin-bottom: 0.5rem;
         }
 
@@ -429,7 +428,7 @@
             top: 10px;
             bottom: 10px;
             width: 4px;
-            background: linear-gradient(to bottom, var(--primary-color, #ff9900), #ffcc66);
+            background: linear-gradient(to bottom, #ff9900, #ffcc66);
             border-radius: 2px;
         }
 
@@ -444,7 +443,7 @@
             top: 0;
             width: 44px;
             height: 44px;
-            background: var(--primary-color, #ff9900);
+            background: #ff9900;
             color: white;
             border-radius: 50%;
             display: flex;
@@ -465,7 +464,7 @@
 
         .story-content h3 {
             font-size: 1.5rem;
-            color: var(--dark-color, #333);
+            color: #333;
             margin-bottom: 1rem;
             border-bottom: 2px solid #f0f0f0;
             padding-bottom: 0.5rem;
@@ -478,11 +477,6 @@
             margin-bottom: 1rem;
         }
 
-        .story-content p:last-child {
-            margin-bottom: 0;
-        }
-
-        /* Gita Callout Box */
         .gita-quote-box {
             background: #fff8eb;
             border-left: 4px solid #e67e22;
@@ -526,10 +520,9 @@
             line-height: 1.6;
         }
 
-        /* Master Motive Card */
         .motive-highlight-card {
             background: linear-gradient(135deg, #fff7e6 0%, #ffeed4 100%);
-            border: 2px dashed var(--primary-color, #ff9900);
+            border: 2px dashed #ff9900;
             padding: 3rem;
             border-radius: 16px;
             text-align: center;
@@ -552,16 +545,16 @@
             margin: 0 auto;
         }
 
-        /* Legacy Grid Elements Adjustments */
+        /* Legacy Sections Grids */
         .deity-section {
             padding: 60px 0;
-            background: var(--light-color, #f9f9f9);
+            background: #f9f9f9;
         }
 
         .deity-section h2, .highlights-section h2, .values-section h2 {
             text-align: center;
             font-size: 2.5rem;
-            color: var(--dark-color, #222);
+            color: #222;
             margin-bottom: 3rem;
         }
 
@@ -577,23 +570,13 @@
             border-radius: 10px;
             text-align: center;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            border-top: 4px solid var(--primary-color, #ff9900);
+            border-top: 4px solid #ff9900;
         }
 
         .deity-card i {
             font-size: 3rem;
-            color: var(--primary-color, #ff9900);
+            color: #ff9900;
             margin-bottom: 1rem;
-        }
-
-        .deity-card h3, .highlight-item h3, .value-card h3 {
-            color: var(--dark-color, #333);
-            margin-bottom: 1rem;
-        }
-
-        .deity-card p, .highlight-item p, .value-card p {
-            color: var(--text-light, #666);
-            line-height: 1.6;
         }
 
         .highlights-section {
@@ -610,7 +593,7 @@
         .highlight-item {
             text-align: center;
             padding: 2rem;
-            background: var(--light-color, #f9f9f9);
+            background: #f9f9f9;
             border-radius: 10px;
             transition: all 0.3s ease;
         }
@@ -623,13 +606,13 @@
 
         .highlight-icon {
             font-size: 3rem;
-            color: var(--primary-color, #ff9900);
+            color: #ff9900;
             margin-bottom: 1rem;
         }
 
         .values-section {
             padding: 60px 0;
-            background: var(--light-color, #f9f9f9);
+            background: #f9f9f9;
         }
 
         .values-grid {
@@ -643,23 +626,17 @@
             padding: 2rem;
             border-radius: 10px;
             text-align: center;
-            border-left: 4px solid var(--primary-color, #ff9900);
+            border-left: 4px solid #ff9900;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
 
-        /* Responsive Breakpoints */
+        /* Responsive UI viewports adjustments */
         @media (max-width: 992px) {
-            .about-split-container {
-                grid-template-columns: 1fr; /* Switch to a stacked list layout on tablet and mobile viewports */
-                gap: 2.5rem;
+            .custom-split-container {
+                grid-template-columns: 1fr;
             }
-            
-            .responsive-about-pic {
-                max-width: 100%;
-            }
-
-            .divine-promise-card {
-                padding: 1.5rem;
+            .crop-wrapper {
+                max-width: 400px;
             }
         }
 
@@ -667,7 +644,6 @@
             .about-section h2, .journey-header h2, .deity-section h2, .highlights-section h2, .values-section h2 {
                 font-size: 1.8rem;
             }
-
             .story-timeline {
                 padding-left: 20px;
             }
