@@ -1,3 +1,4 @@
+Here is your updated code. I have replaced the old Ratha Yatra ticker with the new, creative Krishna Janmashtami announcement, ensuring the design matches your site's aesthetic while adding a fresh, dashing look.
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,27 +11,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
-        /* Modern Trending Announcement Ticker */
+        /* Creative Krishna Janmashtami Announcement Ticker */
         .announcement-ticker {
-            background: #111111; /* Dark sleek obsidian background */
+            background: #1a0033; /* Deep spiritual purple */
             position: relative;
             overflow: hidden;
             padding: 14px 0;
-            border-bottom: 2px solid #ff6f00; /* Vibrant saffron baseline accent */
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            border-bottom: 3px solid #fbbf24; /* Festive gold accent */
+            box-shadow: 0 4px 20px rgba(147, 51, 234, 0.3);
             display: flex;
             align-items: center;
-        }
-
-        /* Ambient glow effect behind the text */
-        .announcement-ticker::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(90deg, #ff6f00 0%, transparent 20%, transparent 80%, #ff6f00 100%);
-            opacity: 0.15;
-            pointer-events: none;
-            z-index: 2;
         }
 
         .ticker-wrap {
@@ -43,41 +33,40 @@
         .ticker-content {
             display: inline-block;
             padding-left: 100%;
-            animation: marquee 28s linear infinite;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            font-weight: 500;
-            font-size: 0.95rem;
-            letter-spacing: 1px;
+            animation: marquee 35s linear infinite;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
             text-transform: uppercase;
-            color: #e0e0e0;
+            color: #f3e8ff;
         }
 
-        /* Modern Typography Accents */
+        /* Dashing UI Elements */
         .ticker-badge {
-            background: linear-gradient(135deg, #ff8f00, #ff6f00);
-            color: #ffffff;
-            padding: 4px 10px;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            font-weight: 700;
+            background: linear-gradient(45deg, #f59e0b, #d97706);
+            color: #fff;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 800;
             margin-right: 15px;
-            box-shadow: 0 2px 8px rgba(255, 111, 0, 0.4);
-            display: inline-block;
-            vertical-align: middle;
+            box-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
+            animation: pulse 2s infinite;
         }
 
         .highlight-text {
-            color: #ffd700; /* Bright gold for dates & locations */
-            font-weight: 700;
+            color: #fde047; /* Glowing gold */
+            font-weight: 800;
+            text-shadow: 0 0 8px rgba(253, 224, 71, 0.5);
         }
 
         .divider-dot {
-            color: #ff6f00;
+            color: #f43f5e; /* Vibrant accent */
             margin: 0 20px;
-            display: inline-block;
+            font-size: 1.2rem;
         }
 
-        /* Smooth interaction */
         .announcement-ticker:hover .ticker-content {
             animation-play-state: paused;
             cursor: pointer;
@@ -86,6 +75,12 @@
         @keyframes marquee {
             0% { transform: translate3d(0, 0, 0); }
             100% { transform: translate3d(-100%, 0, 0); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
         }
     </style>
 </head>
@@ -106,16 +101,16 @@
         </div>
     </nav>
 
-    <!-- Moving Announcement Ticker -->
+    <!-- Updated Announcement Ticker -->
     <div class="announcement-ticker">
         <div class="ticker-wrap">
             <div class="ticker-content">
-                <span class="ticker-badge">📢 ANNOUNCEMENT</span> 
-                Sri Jagannath Temple Bidar <span class="highlight-text">Ratha Yatra 2026</span> is being held on <span class="highlight-text">July 19</span> 
-                <span class="divider-dot">•</span> 
-                Route: From <span class="highlight-text">Sri Laxmi Satynarayan Temple</span> to <span class="highlight-text">Sri Jagannath Temple</span> 
-                <span class="divider-dot">•</span> 
-                Join and be part of the Holy Ratha Yatra of Lord Prabhu Jagannath! ✨ 
+                <span class="ticker-badge">🦚 UTSAV UPDATE</span> 
+                Shri Jagannath Temple Bidar <span class="highlight-text">Krishna Janmashtami 2026</span> is descending on <span class="highlight-text">September 4</span>! 
+                <span class="divider-dot">✦</span> 
+                Join us for the divine midnight incarnation, enchanting bhajans, and blessed darshan! 🌸 
+                <span class="divider-dot">✦</span> 
+                Let us celebrate the birth of the Supreme Lord together! 🪈✨ 
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </div>
         </div>
@@ -129,7 +124,7 @@
         </div>
     </section>
 
-    <!-- Main Content -->
+    <!-- ... (Remainder of your existing code remains unchanged) ... -->
     <main class="container">
         <!-- Features Section -->
         <section class="features">
@@ -230,3 +225,4 @@
     </footer>
 </body>
 </html>
+
